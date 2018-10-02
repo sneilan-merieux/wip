@@ -19,7 +19,7 @@ const key = 'vcr.recording';
 export default class Toolbar extends React.Component {
   state = {
     installing: true,
-    isRecording: window.sessionStorage.getItem(key) === 'true',
+    isRecording: false,
     hasCassette: false,
   }
 
@@ -49,13 +49,11 @@ export default class Toolbar extends React.Component {
   }
 
   handleRecord = () => {
-    window.sessionStorage.setItem(key, true);
-    this.setState({ installing: false });
-    window.location.reload();
+    this.setState({ installing: false, isRecording: true });
+    this.iframe.contentWindow.location.reload();
   }
 
   handleStop = () => {
-    window.sessionStorage.setItem(key, false);
     this.setState({ isRecording: false, hasCassette: true });
     this.vcr.stop();
   }
