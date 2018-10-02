@@ -10,6 +10,7 @@
     "lib"
   ],
   "scripts": {
+    "watch": "tsc --watch",
     "build": "tsc",
     "prepublish": "npm run build"
   },

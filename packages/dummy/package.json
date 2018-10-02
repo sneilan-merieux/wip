@@ -7,7 +7,6 @@
     "start": "webpack-dev-server --open --overlay --mode=development"
   },
   "dependencies": {
-    "puppeteer": "^1.8.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
@@ -18,6 +17,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
     "html-webpack-plugin": "^3.2.0",
+    "vcr-webpack-plugin": "^0.0.1-alpha.0",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"
