@@ -1,20 +1,18 @@
-import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import * as React from 'react';
+import * as style from 'styled-components';
 import Debug from 'debug';
 import Vcr from '../Vcr';
 import { Root, Name } from './elements';
-import FileSaver from 'file-saver';
+import * as FileSaver from 'file-saver';
 
 const debug = Debug('vcr:client');
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = (style as any).createGlobalStyle`
   html, body {
     padding: 0;
     margin: 0;
   }
 `;
-
-const key = 'vcr.recording';
 
 export default class Toolbar extends React.Component {
   state = {
@@ -23,11 +21,7 @@ export default class Toolbar extends React.Component {
     hasCassette: false,
   }
 
-  constructor(props) {
-    super(props);
-
-    this.vcr = new Vcr();
-  }
+  vcr = new Vcr();
 
   async componentDidMount() {
     await this.vcr.install()

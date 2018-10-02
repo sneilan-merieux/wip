@@ -1,14 +1,9 @@
-const fs = require('fs');
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VcrWebpackPlugin = require('./vcr');
+const VcrWebpackPlugin = require('../vcr-webpack-plugin/lib');
+const middleware = require('../vcr-webpack-plugin/lib/middleware');
 
 module.exports = {
-  entry: {
-    main: './src/index.js',
-    'vcr.client': './vcr/client.js',
-    'vcr.sw': './vcr/sw.js',
-  },
+  entry: './src/index.js',
   devtool: 'source-map',
   module: {
     rules: [
@@ -36,13 +31,7 @@ module.exports = {
   ],
   devServer: {
     before(app) {
-      app.get('/vcr/*', (req, res) => {
-        res.setHeader('Content-Type', 'text/html');
-
-        fs.createReadStream(
-          path.join(__dirname, 'vcr', 'vcr.html')
-        ).pipe(res);
-      });
+      middleware(app)
     }
   }
 }

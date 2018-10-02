@@ -1,3 +1,16 @@
+export interface DOMEvent {
+  selector: string;
+  value: string;
+  tagName: string;
+  action: string;
+  keyCode: number;
+  href: string;
+  coordinates: {
+    x: number,
+    y: number,
+  }
+}
+
 export default class Cassette {
   DOMEvents = [];
   HTTPInteractions = [];

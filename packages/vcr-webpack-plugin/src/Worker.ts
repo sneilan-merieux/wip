@@ -1,9 +1,12 @@
 import Debug from 'debug';
 
+declare var self: ServiceWorkerGlobalScope;
+
 const debug = Debug('vcr:worker');
 
 export default class VcrWorker {
   recording = false;
+  port: MessagePort;
 
   constructor() {
     self.addEventListener('message', this.handleMessage);

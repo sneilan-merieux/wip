@@ -1,11 +1,14 @@
-const debug = require('debug')('vcr:player');
-const puppeteer = require('puppeteer');
-const assert = require('assert');
+import * as puppeteer from 'puppeteer';
+import * as assert from 'assert';
+import Debug from 'debug';
+
+const debug = Debug('vcr:player');
 
 const cassetteFile = process.argv[2];
 const cassette = require(cassetteFile);
 
-(async () => {
+async function main() {
+  debug('Launch puppeteer');
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setRequestInterception(true);
@@ -65,4 +68,6 @@ const cassette = require(cassetteFile);
   }
 
   await browser.close();
-})();
+}
+
+main();

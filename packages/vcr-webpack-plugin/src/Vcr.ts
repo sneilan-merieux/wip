@@ -1,7 +1,7 @@
 import finder from '@medv/finder';
 import Debug from 'debug';
 import eventsToRecord from './eventsToRecord';
-import Cassette from './Cassette';
+import Cassette, { DOMEvent } from './Cassette';
 
 const debug = Debug('vcr:client');
 
@@ -17,23 +17,27 @@ function getCoordinates(evt) {
 
 export default class Vcr {
   cassette = new Cassette();
+  channel = new MessageChannel();
+  port: MessagePort;
+  iframe: HTMLIFrameElement;
+  serviceWorker: ServiceWorker;
+  previousEvent: Event;
 
   constructor() {
-    this.channel = new MessageChannel();
     this.port = this.channel.port1;
-    this.iframe = document.getElementById('iframe');
+    this.iframe = document.getElementById('iframe') as HTMLIFrameElement;
     this.loadIframe();
   }
 
   async record() {
-    const events = Object.values(eventsToRecord);
+    const events = Object.keys(eventsToRecord).map(key => eventsToRecord[key]);
     this.message({ action: 'start' });
     await this.reloadIframe();
     this.addAllListeners(events);
   }
 
   loadIframe() {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const contentPage = window.location.pathname.substr('/vcr'.length) + window.location.search;
       this.iframe.src = contentPage + window.location.hash;
       this.cassette.pageURL = this.iframe.src;
@@ -43,7 +47,7 @@ export default class Vcr {
   }
 
   reloadIframe() {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       this.iframe.onload = resolve;
       this.iframe.contentWindow.location.reload();
     });
@@ -65,20 +69,20 @@ export default class Vcr {
           resolve();
         }
       });
-    })
+    });
   }
 
   message(msg) {
     this.serviceWorker.postMessage(msg);
   }
 
-  handleMessage = (event) => {
+  handleMessage = event => {
     debug('Received message %o', event);
     const { action } = event.data;
     if (action) {
       this[action](event);
     }
-  }
+  };
 
   addAllListeners(events) {
     const boundedRecordEvent = this.recordDOMEvent.bind(this);
@@ -98,14 +102,18 @@ export default class Vcr {
     this.previousEvent = e;
 
     const event = {
-      selector: finder(e.target, { root: this.iframe.contentWindow.document, seedMinLength: 5, optimizedMinLength: 10 }),
+      selector: finder(e.target, {
+        root: this.iframe.contentWindow.document.documentElement,
+        seedMinLength: 5,
+        optimizedMinLength: 10,
+      }),
       value: e.target.value,
       tagName: e.target.tagName,
       action: e.type,
       keyCode: e.keyCode ? e.keyCode : null,
       href: e.target.href ? e.target.href : null,
       coordinates: getCoordinates(e),
-   };
+    };
     debug('Record DOMEvent %o', event);
     this.cassette.addDOMEvent(event);
   }

@@ -1,0 +1,23 @@
+{
+  "name": "vcr-cli",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "keywords": [],
+  "author": "Wei Zhu <yesmeck@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "debug": "^4.0.1",
+    "puppeteer": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.11.3",
+    "@types/puppeteer": "^1.6.4"
+  }
+}
