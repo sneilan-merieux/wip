@@ -16,7 +16,7 @@ export default class Cassette {
     return {
       pageURL: this.pageURL,
       DOMEvents: this.DOMEvents,
-      HTTPInteractive: this.HTTPInteractions,
+      HTTPInteractions: this.HTTPInteractions,
       HTMLSnapshot: this.HTMLSnapshot,
     }
   }

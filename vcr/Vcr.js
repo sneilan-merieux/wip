@@ -50,7 +50,7 @@ export default class Vcr {
   }
 
   stop() {
-    this.cassette.HTMLSnapshot = this.iframe.contentWindow.document.documentElement.innerHTML;
+    this.cassette.HTMLSnapshot = this.iframe.contentWindow.document.documentElement.outerHTML;
     this.message({ action: 'stop' });
   }
 
