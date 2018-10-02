@@ -18,24 +18,39 @@ function getCoordinates(evt) {
 export default class Vcr {
   cassette = new Cassette();
 
-  constructor(iframe) {
+  constructor() {
     this.channel = new MessageChannel();
     this.port = this.channel.port1;
-    this.iframe = iframe;
+    this.iframe = document.getElementById('iframe');
+    this.loadIframe();
   }
 
   async record() {
     const events = Object.values(eventsToRecord);
     this.message({ action: 'start' });
+    await this.reloadIframe();
     this.addAllListeners(events);
   }
 
-  stop() {
-    this.message({ action: 'stop' });
+  loadIframe() {
+    return new Promise((resolve) => {
+      const contentPage = window.location.pathname.substr('/vcr'.length) + window.location.search;
+      this.iframe.src = contentPage + window.location.hash;
+      debug('Loading page %s', this.iframe.src);
+      this.iframe.onload = resolve;
+    });
   }
 
-  save() {
-    console.log(this.cassette.dump());
+  reloadIframe() {
+    return new Promise((resolve) => {
+      this.iframe.onload = resolve;
+      this.iframe.contentWindow.location.reload();
+    });
+  }
+
+  stop() {
+    this.cassette.setHTMLSnapshot(this.iframe.contentWindow.document.documentElement.innerHTML);
+    this.message({ action: 'stop' });
   }
 
   install() {

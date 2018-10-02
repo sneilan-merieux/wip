@@ -26,31 +26,18 @@ export default class Toolbar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.iframe = document.getElementById('iframe');
-    this.vcr = new Vcr(this.iframe);
+    this.vcr = new Vcr();
   }
 
   async componentDidMount() {
     await this.vcr.install()
     this.setState({ installing: false });
-    await this.loadIframe();
-    if (this.state.isRecording) {
-      this.vcr.record();
-    }
-  }
-
-  loadIframe() {
-    return new Promise((resolve) => {
-      const contentPage = window.location.pathname.substr('/vcr'.length) + window.location.search;
-      this.iframe.src = contentPage + window.location.hash;
-      debug('Loading page %s', this.iframe.src);
-      this.iframe.onload = resolve;
-    });
   }
 
   handleRecord = () => {
+    debug('Start recording');
     this.setState({ installing: false, isRecording: true });
-    this.iframe.contentWindow.location.reload();
+    this.vcr.record();
   }
 
   handleStop = () => {
