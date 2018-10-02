@@ -36,6 +36,7 @@ export default class Vcr {
     return new Promise((resolve) => {
       const contentPage = window.location.pathname.substr('/vcr'.length) + window.location.search;
       this.iframe.src = contentPage + window.location.hash;
+      this.cassette.pageURL = this.iframe.src;
       debug('Loading page %s', this.iframe.src);
       this.iframe.onload = resolve;
     });
@@ -49,7 +50,7 @@ export default class Vcr {
   }
 
   stop() {
-    this.cassette.setHTMLSnapshot(this.iframe.contentWindow.document.documentElement.innerHTML);
+    this.cassette.HTMLSnapshot = this.iframe.contentWindow.document.documentElement.innerHTML;
     this.message({ action: 'stop' });
   }
 

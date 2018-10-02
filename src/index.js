@@ -14,7 +14,7 @@ class App extends React.Component {
     fetch('https://randomuser.me/api/')
       .then(response  => response.json())
       .then(({ results }) => this.setState({ user: results[0] }))
-      .catch(e => console.error());
+      .catch(e => console.log(e.message, e.stack));
   }
 
   render() {

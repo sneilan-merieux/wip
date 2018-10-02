@@ -2,6 +2,7 @@ export default class Cassette {
   DOMEvents = [];
   HTTPInteractions = [];
   HTMLSnapshot = '';
+  pageURL = '';
 
   addDOMEvent(event) {
     this.DOMEvents.push(event);
@@ -11,12 +12,9 @@ export default class Cassette {
     this.HTTPInteractions.push(HTTPInteraction);
   }
 
-  setHTMLSnapshot(snapshot) {
-    this.HTMLSnapshot = snapshot;
-  }
-
   dump() {
     return {
+      pageURL: this.pageURL,
       DOMEvents: this.DOMEvents,
       HTTPInteractive: this.HTTPInteractions,
       HTMLSnapshot: this.HTMLSnapshot,
