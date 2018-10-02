@@ -5,5 +5,4 @@ export default {
   KEYDOWN: 'keydown',
   SELECT: 'select',
   SUBMIT: 'submit',
-  UNLOAD: 'unload'
 }

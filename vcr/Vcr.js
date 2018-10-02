@@ -3,7 +3,7 @@ import Debug from 'debug';
 import eventsToRecord from './eventsToRecord';
 import Cassette from './Cassette';
 
-const debug = Debug('vcr:master');
+const debug = Debug('vcr:client');
 
 function getCoordinates(evt) {
   const eventsWithCoordinates = {
@@ -21,12 +21,14 @@ export default class Vcr {
   constructor() {
     this.channel = new MessageChannel();
     this.port = this.channel.port1;
+    this.iframe = document.getElementById('iframe');
   }
 
-  record() {
+  async record() {
     const events = Object.values(eventsToRecord);
-    this.addAllListeners(events);
     this.message({ action: 'start' });
+    await this.setIframe();
+    this.addAllListeners(events);
   }
 
   stop() {
@@ -40,7 +42,7 @@ export default class Vcr {
 
   install() {
     return new Promise(resolve => {
-      navigator.serviceWorker.register('./sw.js').then(registration => {
+      navigator.serviceWorker.register('/vcr.sw.js').then(registration => {
         if (registration.active) {
           debug('SW active');
           this.serviceWorker = registration.active;
@@ -50,7 +52,15 @@ export default class Vcr {
         }
       });
     })
- }
+  }
+
+  setIframe() {
+    return new Promise((resolve) => {
+      const contentPage = window.location.pathname.substr('/vcr'.length) + window.location.search;
+      this.iframe.src = contentPage + window.location.hash;
+      this.iframe.onload = resolve;
+    });
+  }
 
   message(msg) {
     this.serviceWorker.postMessage(msg);
@@ -67,7 +77,7 @@ export default class Vcr {
   addAllListeners(events) {
     const boundedRecordEvent = this.recordDOMEvent.bind(this);
     events.forEach(type => {
-      window.addEventListener(type, boundedRecordEvent, true);
+      this.iframe.contentWindow.addEventListener(type, boundedRecordEvent, true);
     });
   }
 
@@ -82,7 +92,7 @@ export default class Vcr {
     this.previousEvent = e;
 
     const event = {
-      selector: finder(e.target, { seedMinLength: 5, optimizedMinLength: 10 }),
+      selector: finder(e.target, { root: this.iframe.contentWindow.document, seedMinLength: 5, optimizedMinLength: 10 }),
       value: e.target.value,
       tagName: e.target.tagName,
       action: e.type,

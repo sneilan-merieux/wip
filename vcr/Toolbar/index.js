@@ -4,8 +4,9 @@ import Vcr from '../Vcr';
 import { Root, Name } from './elements';
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    padding-top: 30px;
+  html, body {
+    padding: 0;
+    margin: 0;
   }
 `;
 
