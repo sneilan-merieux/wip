@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VcrWebpackPlugin = require('vcr-webpack-plugin');
 const middleware = require('vcr-webpack-plugin/lib/middleware');
 
@@ -13,25 +13,31 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [['@babel/preset-env', {
-              exclude: ['transform-regenerator'],
-            }], '@babel/preset-react'],
-            plugins: ['@babel/plugin-proposal-class-properties']
-          }
-        }
-      }
-    ]
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  exclude: ['transform-regenerator'],
+                },
+              ],
+              '@babel/preset-react',
+            ],
+            plugins: ['@babel/plugin-proposal-class-properties'],
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
       chunks: ['main'],
     }),
-    new VcrWebpackPlugin()
+    new VcrWebpackPlugin(),
   ],
   devServer: {
     before(app) {
-      middleware(app)
-    }
-  }
-}
+      middleware(app);
+    },
+  },
+};

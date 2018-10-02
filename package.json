@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "lerna run start --stream --scope dummy",
-    "watch": "lerna run watch --parallel --stream --scope vcr-cli vcr-webpack-plugin"
+    "watch": "lerna run watch --parallel --ignore dummy"
   },
   "devDependencies": {
     "lerna": "^3.4.0"

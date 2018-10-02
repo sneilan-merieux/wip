@@ -38,8 +38,7 @@ export default class Vcr {
 
   loadIframe() {
     return new Promise(resolve => {
-      const contentPage = window.location.pathname.substr('/vcr'.length) + window.location.search;
-      this.iframe.src = contentPage + window.location.hash;
+      this.iframe.src = window.location.origin;
       this.cassette.pageURL = this.iframe.src;
       debug('Loading page %s', this.iframe.src);
       this.iframe.onload = resolve;
