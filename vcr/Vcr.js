@@ -18,22 +18,20 @@ function getCoordinates(evt) {
 export default class Vcr {
   cassette = new Cassette();
 
-  constructor() {
+  constructor(iframe) {
     this.channel = new MessageChannel();
     this.port = this.channel.port1;
-    this.iframe = document.getElementById('iframe');
+    this.iframe = iframe;
   }
 
   async record() {
     const events = Object.values(eventsToRecord);
     this.message({ action: 'start' });
-    await this.setIframe();
     this.addAllListeners(events);
   }
 
   stop() {
     this.message({ action: 'stop' });
-    this.save();
   }
 
   save() {
@@ -52,14 +50,6 @@ export default class Vcr {
         }
       });
     })
-  }
-
-  setIframe() {
-    return new Promise((resolve) => {
-      const contentPage = window.location.pathname.substr('/vcr'.length) + window.location.search;
-      this.iframe.src = contentPage + window.location.hash;
-      this.iframe.onload = resolve;
-    });
   }
 
   message(msg) {
