@@ -1,0 +1,149 @@
+{
+  "pageURL": "http://localhost:8080/",
+  "DOMEvents": [
+    {
+      "selector": "html > body > #root > div > button",
+      "value": "",
+      "tagName": "BUTTON",
+      "action": "click",
+      "keyCode": null,
+      "href": null,
+      "coordinates": null
+    }
+  ],
+  "HTTPInteractions": [
+    {
+      "method": "GET",
+      "url": "https://randomuser.me/api/",
+      "response": {
+        "results": [
+          {
+            "gender": "female",
+            "name": {
+              "title": "mrs",
+              "first": "vicky",
+              "last": "bradley"
+            },
+            "location": {
+              "street": "3798 grove road",
+              "city": "kilcoole",
+              "state": "mayo",
+              "postcode": 82478,
+              "coordinates": {
+                "latitude": "22.6593",
+                "longitude": "151.2782"
+              },
+              "timezone": {
+                "offset": "+3:00",
+                "description": "Baghdad, Riyadh, Moscow, St. Petersburg"
+              }
+            },
+            "email": "vicky.bradley@example.com",
+            "login": {
+              "uuid": "f1986479-c800-449b-81da-1e66e2892dc5",
+              "username": "purplebutterfly908",
+              "password": "steffen",
+              "salt": "GcdrMTHg",
+              "md5": "6b3991e8088b5b9ea407caf17d1fddef",
+              "sha1": "8eeca8c9980fe8a38979949cb659ee4cee35edea",
+              "sha256": "86cfd02a8537a01406691719ae99cc93b8563082bcde2ad648f61bb06c4b110c"
+            },
+            "dob": {
+              "date": "1966-05-16T04:31:45Z",
+              "age": 52
+            },
+            "registered": {
+              "date": "2009-04-10T15:26:26Z",
+              "age": 9
+            },
+            "phone": "021-561-8738",
+            "cell": "081-152-3445",
+            "id": {
+              "name": "PPS",
+              "value": "3284902T"
+            },
+            "picture": {
+              "large": "https://randomuser.me/api/portraits/women/86.jpg",
+              "medium": "https://randomuser.me/api/portraits/med/women/86.jpg",
+              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/86.jpg"
+            },
+            "nat": "IE"
+          }
+        ],
+        "info": {
+          "seed": "af71a00ef7c3ce5a",
+          "results": 1,
+          "page": 1,
+          "version": "1.2"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://randomuser.me/api/",
+      "response": {
+        "results": [
+          {
+            "gender": "female",
+            "name": {
+              "title": "ms",
+              "first": "oya",
+              "last": "dağlaroğlu"
+            },
+            "location": {
+              "street": "2220 mevlana cd",
+              "city": "malatya",
+              "state": "diyarbakır",
+              "postcode": 18029,
+              "coordinates": {
+                "latitude": "76.0171",
+                "longitude": "83.4569"
+              },
+              "timezone": {
+                "offset": "+4:30",
+                "description": "Kabul"
+              }
+            },
+            "email": "oya.dağlaroğlu@example.com",
+            "login": {
+              "uuid": "c4ba3e84-197c-474e-b093-cd562de85369",
+              "username": "bluerabbit857",
+              "password": "master1",
+              "salt": "JCWCr47d",
+              "md5": "26ec08ee992951d47edc7f4b174b2563",
+              "sha1": "ccb88930ad38431df1773f6f420e0ffda60c32a9",
+              "sha256": "b4921a65881734c702dad45c3fef38aad40ab0a8d89bef70692714b2c4f2b4d9"
+            },
+            "dob": {
+              "date": "1963-10-19T06:10:39Z",
+              "age": 54
+            },
+            "registered": {
+              "date": "2008-07-12T02:13:46Z",
+              "age": 10
+            },
+            "phone": "(895)-314-6775",
+            "cell": "(810)-378-6858",
+            "id": {
+              "name": "",
+              "value": null
+            },
+            "picture": {
+              "large": "https://randomuser.me/api/portraits/women/14.jpg",
+              "medium": "https://randomuser.me/api/portraits/med/women/14.jpg",
+              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/14.jpg"
+            },
+            "nat": "TR"
+          }
+        ],
+        "info": {
+          "seed": "de7828aee42a58e3",
+          "results": 1,
+          "page": 1,
+          "version": "1.2"
+        }
+      }
+    }
+  ],
+  "HTMLSnapshot": "<html lang=\"en\"><head>\n    <meta charset=\"utf-8\">\n    <title>Webpack App</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  </head>\n  <body>\n    <div id=\"root\"><div><img src=\"https://randomuser.me/api/portraits/med/women/14.jpg\"><button>Next</button></div></div>\n  <script type=\"text/javascript\" src=\"main.js\"></script>\n\n</body></html>"
+}
