@@ -1,5 +1,5 @@
 {
-  "pageURL": "http://localhost:8080/",
+  "pageURL": "http://localhost:8000/",
   "DOMEvents": [
     {
       "selector": "html > body > #root > div > button",
