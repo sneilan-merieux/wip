@@ -41,7 +41,7 @@ export default class Toolbar extends React.Component {
 
   handleSave = () => {
     const blob = new Blob([JSON.stringify(this.vcr.cassette.dump(), null, 2)], { type: "application/json;charset=utf-8" });
-    FileSaver.saveAs(blob, "untitled.json");
+    FileSaver.saveAs(blob, "untitled.vc");
   }
 
   render() {

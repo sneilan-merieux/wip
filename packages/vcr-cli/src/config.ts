@@ -3,9 +3,9 @@ export default {
   globalTeardown: require.resolve('jest-environment-puppeteer/teardown'),
   testEnvironment: require.resolve('jest-environment-puppeteer'),
   setupTestFrameworkScriptFile: require.resolve('expect-puppeteer'),
-  testRegex: 'tests/cassettes/.*\\.cs$',
+  testRegex: 'tests/cassettes/.*\\.vc$',
   transform: {
-    '^.+\\.cs$': 'vcr-cli/lib/transformer.js',
+    '^.+\\.vc$': 'vcr-cli/lib/transformer.js',
   },
-  moduleFileExtensions: ['js', 'jsx', 'json', 'cs'],
+  moduleFileExtensions: ['js', 'jsx', 'json', 'vc'],
 };
