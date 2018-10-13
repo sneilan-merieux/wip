@@ -4,7 +4,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open --overlay --mode=development",
+    "start": "webpack-dev-server --overlay --mode=development --port=8000",
     "test": "vcr"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "vcr-cli": "^0.0.1-alpha.0",
     "vcr-webpack-plugin": "^0.0.1-alpha.0",
     "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.8"
   }
 }

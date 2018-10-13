@@ -4,20 +4,11 @@ export function process(src, path, config, transformOptions) {
   return `
   const puppeteer = require('puppeteer');
   const debug = require('debug')('vcr:player');
+  const cassette = ${src};
 
   describe('${basename(path)}', () => {
     let browser;
     beforeAll(async () => {
-      browser = await puppeteer.launch();
-    });
-
-    afterAll(async () => {
-      await browser.close();
-    });
-
-    it('works as expect', async () => {
-      const cassette = ${src};
-      const page = await browser.newPage();
       await page.setRequestInterception(true);
       page.on('request', request => {
         const recordIndex = cassette.HTTPInteractions.findIndex(
@@ -43,7 +34,15 @@ export function process(src, path, config, transformOptions) {
         for (let i = 0; i < msg.args().length; ++i) debug('PAGE LOG: %s', msg.args()[i]);
       });
       debug('Goto page %s', cassette.pageURL);
-      await page.goto(cassette.pageURL);
+      await page.goto('https://google.com')
+    });
+
+    afterAll(async () => {
+      await browser.close();
+    });
+
+    it('works as expect', async () => {
+     await page.goto(cassette.pageURL);
       cassette.DOMEvents.forEach(async event => {
         debug('%s on %s', event.action, event.selector);
         await page.waitForSelector(event.selector, { timeout: 3000 });
@@ -72,7 +71,6 @@ export function process(src, path, config, transformOptions) {
       const documentHandle = await page.evaluateHandle('document');
       const html = await page.evaluate(document => document.documentElement.outerHTML, documentHandle);
       expect(cassette.HTMLSnapshot).toBe(html);
-      await page.close();
     });
   });
 `;
