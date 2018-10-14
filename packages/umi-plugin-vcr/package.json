@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-vcr",
-  "version": "0.0.1-alpha.3",
+  "version": "0.0.1-alpha.4",
   "description": "> TODO: description",
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "homepage": "https://gitlab.com/yesmeck/vcr#readme",
@@ -27,7 +27,7 @@
     "url": "https://gitlab.com/yesmeck/vcr/issues"
   },
   "dependencies": {
-    "vcr-webpack-plugin": "^0.0.1-alpha.5"
+    "vcr-webpack-plugin": "^0.0.1-alpha.6"
   },
   "devDependencies": {
     "@types/node": "^10.11.7",
