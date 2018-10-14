@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VcrWebpackPlugin = require('vcr-webpack-plugin');
-const vcrMiddleware = require('vcr-webpack-plugin/lib/middleware');
+const VcrWebpackPlugin = require('vcr-webpack-plugin').default;
+const vcrMiddleware = require('vcr-webpack-plugin/lib/middleware').default;
 
 module.exports = {
   entry: './src/index.js',

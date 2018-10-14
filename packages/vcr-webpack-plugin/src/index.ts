@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 const SingleEntryPlugin = require('webpack/lib/SingleEntryPlugin');
 
-class VcrWebpackPlugin {
+export default class VcrWebpackPlugin {
   apply(compiler) {
     compiler.hooks.entryOption.tap('VcrWebpackPlugin', _context => {
       new SingleEntryPlugin(compiler.context, resolve(__dirname, './client.js'), 'vcr.client').apply(compiler);
@@ -9,5 +9,3 @@ class VcrWebpackPlugin {
     });
   }
 }
-
-module.exports = VcrWebpackPlugin;
