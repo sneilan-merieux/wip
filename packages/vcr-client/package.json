@@ -18,7 +18,7 @@
     "clean": "rimraf dist",
     "watch": "webpack --color --watch",
     "build": "webpack --color",
-    "prepack": "npm run dist && npm run build"
+    "prepack": "npm run clean && npm run build"
   },
   "bugs": {
     "url": "https://gitlab.com/yesmeck/vcr/issues"
