@@ -16,7 +16,8 @@
   },
   "scripts": {
     "watch": "webpack --color --watch",
-    "build": "webpack --color"
+    "build": "webpack --color",
+    "prepack": "npm run build"
   },
   "bugs": {
     "url": "https://gitlab.com/yesmeck/vcr/issues"
