@@ -59,7 +59,7 @@ export default class Vcr {
 
   install() {
     return new Promise(resolve => {
-      navigator.serviceWorker.register('/vcr.sw.js').then(registration => {
+      navigator.serviceWorker.register('/__vcr__/sw.bundle.js').then(registration => {
         if (registration.active) {
           debug('SW active');
           this.serviceWorker = registration.active;

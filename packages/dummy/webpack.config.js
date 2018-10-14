@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VcrWebpackPlugin = require('vcr-webpack-plugin').default;
 const vcrMiddleware = require('vcr-webpack-plugin/lib/middleware').default;
 
 module.exports = {
@@ -33,11 +32,10 @@ module.exports = {
       template: './index.html',
       chunks: ['main'],
     }),
-    new VcrWebpackPlugin(),
   ],
   devServer: {
     before(app) {
-      app.use('/vcr', vcrMiddleware);
+      vcrMiddleware(app)
     },
   },
 };

@@ -1,0 +1,41 @@
+{
+  "name": "vcr-client",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Wei Zhu <yesmeck@gmail.com>",
+  "homepage": "https://gitlab.com/yesmeck/vcr#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "files": [
+    "dist",
+    "vcr.html"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/yesmeck/vcr.git"
+  },
+  "scripts": {
+    "watch": "webpack --color --watch",
+    "build": "webpack --color"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/yesmeck/vcr/issues"
+  },
+  "dependencies": {
+    "@medv/finder": "^1.1.0",
+    "debug": "^4.0.1",
+    "file-saver": "^2.0.0-rc.3",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "styled-components": "^4.0.0-beta.9"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.8",
+    "@types/styled-components": "^3.0.1",
+    "ts-loader": "^5.2.1",
+    "typescript": "^3.1.3",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
