@@ -27,7 +27,7 @@
     "url": "https://gitlab.com/yesmeck/vcr/issues"
   },
   "dependencies": {
-    "vcr-webpack-plugin": "^0.0.1-alpha.7"
+    "vcr-server": "^0.0.1-alpha.7"
   },
   "devDependencies": {
     "@types/node": "^10.11.7",

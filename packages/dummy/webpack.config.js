@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const vcrMiddleware = require('vcr-webpack-plugin/lib/middleware').default;
+const serve = require('vcr-server');
 
 module.exports = {
   entry: './src/index.js',
@@ -35,7 +35,7 @@ module.exports = {
   ],
   devServer: {
     before(app) {
-      vcrMiddleware(app)
+      serve(app)
     },
   },
 };

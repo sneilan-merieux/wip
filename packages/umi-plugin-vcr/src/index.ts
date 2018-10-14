@@ -1,7 +1,7 @@
-import vcrMiddleware from 'vcr-webpack-plugin/lib/middleware';
+import serve from 'vcr-server';
 
 export default (api) => {
   api._beforeServerWithApp(function ({ app }) {
-    vcrMiddleware(app);
+    serve(app);
   });
 }
