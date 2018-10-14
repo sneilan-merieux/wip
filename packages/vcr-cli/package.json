@@ -13,9 +13,10 @@
 		"vcr": "./bin/vcr.js"
 	},
 	"scripts": {
+		"clean": "rimraf build",
 		"watch": "tsc --watch",
 		"build": "tsc",
-		"prepack": "npm run build"
+		"prepack": "npm run clean && npm run build"
 	},
 	"dependencies": {
 		"debug": "^4.0.1",
@@ -29,6 +30,6 @@
 		"@types/node": "^10.11.3",
 		"@types/puppeteer": "^1.6.4",
 		"@types/yargs": "^12.0.1",
-		"jest": "^23.6.0"
+		"rimraf": "^2.6.2"
 	}
 }

@@ -18,17 +18,19 @@
     "url": "git+ssh://git@gitlab.com/yesmeck/vcr.git"
   },
   "scripts": {
+    "clean": "rimraf build",
     "watch": "tsc --watch",
     "build": "tsc",
-    "prepack": "npm run build"
+    "prepack": "npm run clean && npm run build"
   },
   "bugs": {
     "url": "https://gitlab.com/yesmeck/vcr/issues"
   },
-  "devDependencies": {
-    "@types/node": "^10.11.7"
-  },
   "dependencies": {
     "vcr-webpack-plugin": "^0.0.1-alpha.5"
+  },
+  "devDependencies": {
+    "@types/node": "^10.11.7",
+    "rimraf": "^2.6.2"
   }
 }
