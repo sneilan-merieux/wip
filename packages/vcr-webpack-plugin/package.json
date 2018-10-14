@@ -1,6 +1,6 @@
 {
   "name": "vcr-webpack-plugin",
-  "version": "0.0.1-alpha.4",
+  "version": "0.0.1-alpha.5",
   "description": "",
   "main": "lib/index.js",
   "keywords": [],
@@ -16,6 +16,6 @@
     "prepack": "npm run build"
   },
   "dependencies": {
-    "vcr-client": "^0.0.1-alpha.0"
+    "vcr-client": "^0.0.1-alpha.1"
   }
 }
