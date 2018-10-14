@@ -1,0 +1,34 @@
+{
+  "name": "umi-plugin-vcr",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Wei Zhu <yesmeck@gmail.com>",
+  "homepage": "https://gitlab.com/yesmeck/vcr#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/yesmeck/vcr.git"
+  },
+  "scripts": {
+    "watch": "tsc --watch",
+    "build": "tsc",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/yesmeck/vcr/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^10.11.7"
+  },
+  "dependencies": {
+    "vcr-webpack-plugin": "^0.0.1-alpha.1"
+  }
+}

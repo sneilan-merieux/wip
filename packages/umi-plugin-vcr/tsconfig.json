@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "lib": ["es6"],
+    "types": ["node"]
+  }
+}
