@@ -10,6 +10,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
   },
+  node: {
+    fs: 'empty'
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },

@@ -20,6 +20,9 @@
   <body>
     <div id="vcr"></div>
     <iframe id="iframe" src="javascript:;" allowfullscreen="allowfullscreen"></iframe>
-    <script type="text/javascript" charset="utf-8" src="/__vcr__/client.bundle.js"></script>
+    <script>
+      window.__vcr_config__ = {{ config | dump | safe }};
+    </script>
+    <script type="text/javascript" charset="utf-8" src="/__vcr_client.bundle.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 import Debug from 'debug';
+import * as mm from 'micromatch';
 
 declare var self: ServiceWorkerGlobalScope;
 
@@ -7,6 +8,7 @@ const debug = Debug('vcr:worker');
 export default class VcrWorker {
   recording = false;
   port: MessagePort;
+  config: any;
 
   constructor() {
     self.addEventListener('message', this.handleMessage);
@@ -14,7 +16,9 @@ export default class VcrWorker {
   }
 
   init(event) {
+    const { config } = event.data;
     this.port = event.ports[0];
+    this.config = config;
   }
 
   start() {
@@ -30,7 +34,7 @@ export default class VcrWorker {
 
     event.respondWith(
       fetch(request).then(async (response) => {
-        if (this.recording && request.url === 'https://randomuser.me/api/') {
+        if (this.recording && mm.any(request.url, this.config.apiMatch)) {
           const json = await response.json();
           this.message({
             action: 'recordHTTPInteraction',

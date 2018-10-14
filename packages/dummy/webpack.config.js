@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const serve = require('vcr-server');
+const serve = require('vcr-server').default;
 
 module.exports = {
   entry: './src/index.js',

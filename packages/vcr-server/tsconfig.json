@@ -6,10 +6,7 @@
     "outDir": "./lib",
     "rootDir": "./src",
     "skipLibCheck": true,
-    "lib": [
-      "es6",
-      "webworker",
-      "dom"
-    ]
+    "lib": ["es6"],
+    "types": ["node"]
   }
 }

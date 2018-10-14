@@ -7,8 +7,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "files": [
-    "dist",
-    "vcr.html"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -16,7 +15,7 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "watch": "webpack --color --watch",
+    "watch": "webpack --color --watch --mode development --devtool inline-source-map",
     "build": "webpack --color",
     "prepack": "npm run clean && npm run build"
   },
@@ -27,6 +26,7 @@
     "@medv/finder": "^1.1.0",
     "debug": "^4.0.1",
     "file-saver": "^2.0.0-rc.3",
+    "micromatch": "^3.1.10",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "styled-components": "^4.0.0-beta.9"
