@@ -24,7 +24,8 @@
     "globby": "^8.0.1",
     "jest-cli": "^23.6.0",
     "jest-puppeteer": "^3.4.0",
-    "puppeteer": "^1.8.0"
+    "puppeteer": "^1.8.0",
+    "vcr-config": "^0.0.0"
   },
   "devDependencies": {
     "@types/globby": "^8.0.0",

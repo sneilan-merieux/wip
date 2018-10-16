@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as nunjucks from 'nunjucks';
-import getConfig from './getConfig';
+import getConfig from 'vcr-config';
 
 nunjucks.configure(path.resolve(__dirname, '..'));
 

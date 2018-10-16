@@ -14,7 +14,6 @@ export default function getConfig() {
     return defaultConfig;
   }
 
-  // eslint-disable-next-line global-require, import/no-dynamic-require
   const localConfig = require(absConfigPath);
   return merge({}, defaultConfig, localConfig);
 }

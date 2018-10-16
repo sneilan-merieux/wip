@@ -1,8 +1,7 @@
 import { basename } from 'path';
 
-export function process(src, path, config, transformOptions) {
+export function process(src, path) {
   return `
-  const puppeteer = require('puppeteer');
   const debug = require('debug')('vcr:player');
   const cassette = ${src};
 
