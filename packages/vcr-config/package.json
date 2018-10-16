@@ -1,6 +1,6 @@
 {
 	"name": "vcr-config",
-	"version": "0.0.0",
+	"version": "0.0.1-alpha.0",
 	"description": "> TODO: description",
 	"author": "Wei Zhu <yesmeck@gmail.com>",
 	"homepage": "https://gitlab.com/yesmeck/vcr#readme",
@@ -15,13 +15,13 @@
 	},
 	"bugs": {
 		"url": "https://gitlab.com/yesmeck/vcr/issues"
-  },
-  "scripts": {
-    "clean": "rimraf build",
-    "watch": "tsc --watch",
-    "build": "tsc",
-    "prepack": "npm run clean && npm run build"
-  },
+	},
+	"scripts": {
+		"clean": "rimraf build",
+		"watch": "tsc --watch",
+		"build": "tsc",
+		"prepack": "npm run clean && npm run build"
+	},
 	"dependencies": {
 		"merge-deep": "^3.0.2"
 	},
