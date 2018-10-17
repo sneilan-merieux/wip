@@ -1,3 +1,4 @@
+const USKeyboardLayout = require('puppeteer/lib/USKeyboardLayout');
 const debug = require('debug')('vcr:player');
 const cassette = {{ cassette | safe }};
 
@@ -37,6 +38,10 @@ test('replay {{ name }}', async () => {
         break;
       case 'dbclick':
         await page.click(event.selector, { clickCount: 2 });
+        break;
+      case 'keydown':
+        const key = Object.values(USKeyboardLayout).find(k => k.keyCode === event.keyCode);
+        await page.keyboard.press(key.code);
         break;
       default:
         break;

@@ -3,6 +3,5 @@ export default {
   DBLCLICK: 'dblclick',
   CHANGE: 'change',
   KEYDOWN: 'keydown',
-  SELECT: 'select',
-  SUBMIT: 'submit',
+  SELECT: 'select'
 }
