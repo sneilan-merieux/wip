@@ -8,7 +8,8 @@
   "license": "MIT",
   "files": [
     "lib",
-    "bin"
+    "bin",
+    "templates"
   ],
   "bin": {
     "vcr": "./bin/vcr.js"
@@ -24,6 +25,7 @@
     "globby": "^8.0.1",
     "jest-cli": "^23.6.0",
     "jest-puppeteer": "^3.4.0",
+    "nunjucks": "^3.1.3",
     "puppeteer": "^1.8.0",
     "vcr-config": "^0.0.1-alpha.0"
   },
