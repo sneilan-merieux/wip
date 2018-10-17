@@ -1,12 +1,9 @@
-import { basename, resolve } from 'path';
-import * as nunjucks from 'nunjucks';
-console.log(__dirname);
-
-nunjucks.configure(resolve(__dirname, '../templates'));
+import { basename } from 'path';
 
 export function process(src, path) {
- return nunjucks.render('./test.js', {
-   name: basename(path, '.vc'),
-   cassette: src,
- });
+  const name = basename(path, '.vc');
+  return `
+    const createTest = require('vcr-cli/lib/createTest');
+    test('replay ${name}', createTest(${src}));
+  `;
 }
