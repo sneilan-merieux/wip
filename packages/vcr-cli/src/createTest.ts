@@ -34,9 +34,13 @@ function createTest(cassette) {
     });
     debug('Goto page %s', cassette.pageURL);
     await page.goto(cassette.pageURL);
-    cassette.DOMEvents.forEach(async (event, index) => {
+    for (let i = 0; i < cassette.DOMEvents.length; i++) {
+      const event = cassette.DOMEvents[i];
       debug('%s on %s', event.action, event.selector);
+      await page.screenshot({ path: `/tmp/vcr-${i}.png` });
       await page.waitForSelector(event.selector, { timeout: 3000 });
+      const activeTag = await page.evaluate('document.activeElement.tagName');
+      debug('Active element %s', activeTag);
       switch (event.action) {
         case 'click':
           await page.click(event.selector);
@@ -46,15 +50,13 @@ function createTest(cassette) {
           break;
         case 'keydown':
           const key = values(USKeyboardLayout).find(k => k.keyCode === event.keyCode);
+          debug('Press key %s', key.code);
           await page.keyboard.press(key.code);
           break;
         default:
           break;
       }
-      await page.waitFor(1000);
-    });
-
-    await page.waitFor(1000);
+    }
 
     const watchHtml = page.waitForFunction(snapshot => document.documentElement.outerHTML === snapshot, {
       timeout: 3000
