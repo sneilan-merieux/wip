@@ -4,6 +4,7 @@
     "width": 1440,
     "height": 746
   },
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36",
   "DOMEvents": [
     {
       "selector": "html > body > #root > div > button",
@@ -22,60 +23,60 @@
       "response": {
         "results": [
           {
-            "gender": "male",
+            "gender": "female",
             "name": {
-              "title": "mr",
-              "first": "نيما",
-              "last": "کامروا"
+              "title": "mademoiselle",
+              "first": "rosmarie",
+              "last": "giraud"
             },
             "location": {
-              "street": "3811 شهید شواخ",
-              "city": "اسلام‌شهر",
-              "state": "تهران",
-              "postcode": 43934,
+              "street": "1043 rue baraban",
+              "city": "beinwil am see",
+              "state": "basel-stadt",
+              "postcode": 3772,
               "coordinates": {
-                "latitude": "30.9880",
-                "longitude": "-126.3648"
+                "latitude": "-50.3875",
+                "longitude": "83.8347"
               },
               "timezone": {
-                "offset": "+3:00",
-                "description": "Baghdad, Riyadh, Moscow, St. Petersburg"
+                "offset": "+5:30",
+                "description": "Bombay, Calcutta, Madras, New Delhi"
               }
             },
-            "email": "نيما.کامروا@example.com",
+            "email": "rosmarie.giraud@example.com",
             "login": {
-              "uuid": "ec967146-fd75-4d5b-80ec-54a4e1066ffe",
-              "username": "tinypeacock421",
-              "password": "44444444",
-              "salt": "81Bt2uUX",
-              "md5": "4eb5ab94f7ac8554c60a9f3697918566",
-              "sha1": "a8f3c23345d76eb1ff484f3a6288521fd73f59a9",
-              "sha256": "cc6cef439b3add806c27a8afa94a3e03e56dbf79e4a79f8042252ff1899bb611"
+              "uuid": "d66b1612-835e-45bc-84d6-b98dd14cfea3",
+              "username": "happypanda648",
+              "password": "snake",
+              "salt": "lw4tSVWr",
+              "md5": "863bec21607f6d48dbf12ce6f4927852",
+              "sha1": "23dd09d017448a35124e22b7254ac87a23dde5c9",
+              "sha256": "edcff94c87e570868e679c8a549f4324248f29a867ace89ac5b48969604ed3bf"
             },
             "dob": {
-              "date": "1961-02-03T01:47:12Z",
-              "age": 57
+              "date": "1971-10-13T00:47:31Z",
+              "age": 47
             },
             "registered": {
-              "date": "2012-05-18T14:42:13Z",
-              "age": 6
+              "date": "2015-06-10T05:29:41Z",
+              "age": 3
             },
-            "phone": "080-04399800",
-            "cell": "0959-705-6536",
+            "phone": "(799)-625-9127",
+            "cell": "(884)-445-4730",
             "id": {
-              "name": "",
-              "value": null
+              "name": "AVS",
+              "value": "756.9667.7485.63"
             },
             "picture": {
-              "large": "https://randomuser.me/api/portraits/men/26.jpg",
-              "medium": "https://randomuser.me/api/portraits/med/men/26.jpg",
-              "thumbnail": "https://randomuser.me/api/portraits/thumb/men/26.jpg"
+              "large": "https://randomuser.me/api/portraits/women/81.jpg",
+              "medium": "https://randomuser.me/api/portraits/med/women/81.jpg",
+              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/81.jpg"
             },
-            "nat": "IR"
+            "nat": "CH"
           }
         ],
         "info": {
-          "seed": "c5c8b6f10ab92d6c",
+          "seed": "7bfb80a45371de22",
           "results": 1,
           "page": 1,
           "version": "1.2"
@@ -90,58 +91,58 @@
           {
             "gender": "female",
             "name": {
-              "title": "mrs",
-              "first": "taylor",
-              "last": "simmons"
+              "title": "miss",
+              "first": "ece",
+              "last": "tunaboylu"
             },
             "location": {
-              "street": "5399 parker rd",
-              "city": "albany",
-              "state": "queensland",
-              "postcode": 8493,
+              "street": "6728 filistin cd",
+              "city": "tekirdağ",
+              "state": "denizli",
+              "postcode": 94229,
               "coordinates": {
-                "latitude": "-85.7447",
-                "longitude": "90.6277"
+                "latitude": "76.4966",
+                "longitude": "78.2914"
               },
               "timezone": {
-                "offset": "-7:00",
-                "description": "Mountain Time (US & Canada)"
+                "offset": "-1:00",
+                "description": "Azores, Cape Verde Islands"
               }
             },
-            "email": "taylor.simmons@example.com",
+            "email": "ece.tunaboylu@example.com",
             "login": {
-              "uuid": "ed83e906-24cd-445f-bd2b-92a4a52ec884",
-              "username": "sadmeercat251",
-              "password": "birthday4",
-              "salt": "pV1qu79Z",
-              "md5": "289b78804340a8a3f6de61f324db0457",
-              "sha1": "5b76d9994b682311272b7017d4a7433b34ad3706",
-              "sha256": "a44a0d6a84b749fa030942a0dba744372f5538d0dfcb815e98291f975e3f371b"
+              "uuid": "6c36a9b3-eed8-4399-a324-b04ac8807ca2",
+              "username": "crazypanda123",
+              "password": "boxster",
+              "salt": "3YFnKI4m",
+              "md5": "a45e7b2826c25d24eeff850f5a3798d2",
+              "sha1": "8b6b38f2a09ab802b814e9c9b31689063f93b2a7",
+              "sha256": "2ad3dc989fe7ad6c60b00de51f28eb65f0048e1c4077a57cee062aa2ae1c93ac"
             },
             "dob": {
-              "date": "1978-05-20T23:27:11Z",
-              "age": 40
+              "date": "1959-01-12T22:31:46Z",
+              "age": 59
             },
             "registered": {
-              "date": "2006-05-12T10:27:31Z",
-              "age": 12
+              "date": "2012-05-17T17:20:17Z",
+              "age": 6
             },
-            "phone": "03-1875-5350",
-            "cell": "0401-323-673",
+            "phone": "(550)-476-1759",
+            "cell": "(786)-282-0662",
             "id": {
-              "name": "TFN",
-              "value": "872760856"
+              "name": "",
+              "value": null
             },
             "picture": {
-              "large": "https://randomuser.me/api/portraits/women/63.jpg",
-              "medium": "https://randomuser.me/api/portraits/med/women/63.jpg",
-              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/63.jpg"
+              "large": "https://randomuser.me/api/portraits/women/78.jpg",
+              "medium": "https://randomuser.me/api/portraits/med/women/78.jpg",
+              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/78.jpg"
             },
-            "nat": "AU"
+            "nat": "TR"
           }
         ],
         "info": {
-          "seed": "488dae8fc7a54add",
+          "seed": "fad53d329f279909",
           "results": 1,
           "page": 1,
           "version": "1.2"
@@ -149,5 +150,5 @@
       }
     }
   ],
-  "HTMLSnapshot": "<html lang=\"en\"><head>\n    <meta charset=\"utf-8\">\n    <title>Webpack App</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  </head>\n  <body>\n    <div id=\"root\"><div><img src=\"https://randomuser.me/api/portraits/med/women/63.jpg\"><button>Next</button></div></div>\n  <script type=\"text/javascript\" src=\"main.js\"></script>\n\n</body></html>"
+  "HTMLSnapshot": "<html lang=\"en\"><head>\n    <meta charset=\"utf-8\">\n    <title>Webpack App</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  </head>\n  <body>\n    <div id=\"root\"><div><img src=\"https://randomuser.me/api/portraits/med/women/78.jpg\"><button>Next</button></div></div>\n  <script type=\"text/javascript\" src=\"main.js\"></script>\n\n</body></html>"
 }

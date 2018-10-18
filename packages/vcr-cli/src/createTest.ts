@@ -59,6 +59,8 @@ function createTest(cassette) {
     await page.goto(cassette.pageURL);
     debug('Set viewport %j', cassette.viewport);
     await page.setViewport(cassette.viewport);
+    debug('Set userAgent %s', cassette.userAgent);
+    await page.setUserAgent(cassette.userAgent);
     for (let i = 0; i < cassette.DOMEvents.length; i++) {
       const event = cassette.DOMEvents[i];
       debug('%s on %s', event.action, event.selector);

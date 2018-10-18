@@ -40,6 +40,8 @@ export default class Vcr {
     };
     debug('Set viewport %j', viewport);
     this.cassette.setViewport(viewport);
+    debug('Set userAgent %s', window.navigator.userAgent);
+    this.cassette.setUserAgent(window.navigator.userAgent);
   }
 
   loadIframe() {
