@@ -1,6 +1,7 @@
 const USKeyboardLayout = require('puppeteer/lib/USKeyboardLayout');
 const debug = require('debug')('vcr:player');
 const { values } = require('lodash');
+const fs = require('fs');
 
 declare var document;
 declare var page;
@@ -104,7 +105,9 @@ function createTest(cassette) {
     const documentHandle = await page.evaluateHandle('document');
     const html = await page.evaluate(document => document.documentElement.outerHTML, documentHandle);
     await page.screenshot({ path: `/tmp/vcr-result.png` });
-    expect(cassette.HTMLSnapshot).toBe(html);
+    fs.writeFileSync('/tmp/vcr-result.html', html);
+    fs.writeFileSync('/tmp/vcr-snapshot.html', cassette.HTMLSnapshot);
+    expect(html).toBe(cassette.HTMLSnapshot);
   }
 }
 
