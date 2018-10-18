@@ -7,6 +7,27 @@ declare var page;
 declare var jest;
 declare var expect;
 
+function handleClick(event) {
+  return page.click(event.selector);
+}
+
+function handleDbClick(event) {
+  return page.click(event.selector, { clickCount: 2 });
+}
+
+function handleKeydown(event) {
+  const key = values(USKeyboardLayout).find(k => k.keyCode === event.keyCode);
+  debug('Press key %s', key.code);
+  return page.keyboard.press(key.code);
+}
+
+function handleChange(event) {
+  if (event.tagName === 'SELECT') {
+    return page.select(event.selector, event.value);
+  }
+  return Promise.resolve();
+}
+
 function createTest(cassette) {
   return async () => {
     jest.setTimeout(30 * 60 * 1000);
@@ -45,15 +66,16 @@ function createTest(cassette) {
       debug('Active element %s', activeTag);
       switch (event.action) {
         case 'click':
-          await page.click(event.selector);
+          await handleClick(event);
           break;
         case 'dbclick':
-          await page.click(event.selector, { clickCount: 2 });
+          await handleDbClick(event);
           break;
         case 'keydown':
-          const key = values(USKeyboardLayout).find(k => k.keyCode === event.keyCode);
-          debug('Press key %s', key.code);
-          await page.keyboard.press(key.code);
+          await handleKeydown(event);
+          break;
+        case 'change':
+          await handleChange(event);
           break;
         default:
           break;
