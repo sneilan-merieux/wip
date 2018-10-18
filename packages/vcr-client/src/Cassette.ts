@@ -11,11 +11,21 @@ export interface DOMEvent {
   }
 }
 
+interface Viewport {
+  width: number;
+  height: number;
+}
+
 export default class Cassette {
   DOMEvents = [];
   HTTPInteractions = [];
   HTMLSnapshot = '';
   pageURL = '';
+  viewport: Viewport;
+
+  setViewport(viewport) {
+    this.viewport = viewport;
+  }
 
   addDOMEvent(event) {
     this.DOMEvents.push(event);
@@ -28,6 +38,7 @@ export default class Cassette {
   dump() {
     return {
       pageURL: this.pageURL,
+      viewport: this.viewport,
       DOMEvents: this.DOMEvents,
       HTTPInteractions: this.HTTPInteractions,
       HTMLSnapshot: this.HTMLSnapshot,

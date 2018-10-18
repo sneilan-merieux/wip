@@ -34,6 +34,12 @@ export default class Vcr {
     this.message({ action: 'start' });
     await this.reloadIframe();
     this.addAllListeners(events);
+    const viewport = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+    debug('Set viewport %j', viewport);
+    this.cassette.setViewport(viewport);
   }
 
   loadIframe() {
