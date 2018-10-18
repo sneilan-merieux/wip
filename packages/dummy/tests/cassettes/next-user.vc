@@ -1,5 +1,9 @@
 {
   "pageURL": "http://localhost:8000/",
+  "viewport": {
+    "width": 1440,
+    "height": 746
+  },
   "DOMEvents": [
     {
       "selector": "html > body > #root > div > button",
@@ -18,60 +22,60 @@
       "response": {
         "results": [
           {
-            "gender": "female",
+            "gender": "male",
             "name": {
-              "title": "mrs",
-              "first": "vicky",
-              "last": "bradley"
+              "title": "mr",
+              "first": "نيما",
+              "last": "کامروا"
             },
             "location": {
-              "street": "3798 grove road",
-              "city": "kilcoole",
-              "state": "mayo",
-              "postcode": 82478,
+              "street": "3811 شهید شواخ",
+              "city": "اسلام‌شهر",
+              "state": "تهران",
+              "postcode": 43934,
               "coordinates": {
-                "latitude": "22.6593",
-                "longitude": "151.2782"
+                "latitude": "30.9880",
+                "longitude": "-126.3648"
               },
               "timezone": {
                 "offset": "+3:00",
                 "description": "Baghdad, Riyadh, Moscow, St. Petersburg"
               }
             },
-            "email": "vicky.bradley@example.com",
+            "email": "نيما.کامروا@example.com",
             "login": {
-              "uuid": "f1986479-c800-449b-81da-1e66e2892dc5",
-              "username": "purplebutterfly908",
-              "password": "steffen",
-              "salt": "GcdrMTHg",
-              "md5": "6b3991e8088b5b9ea407caf17d1fddef",
-              "sha1": "8eeca8c9980fe8a38979949cb659ee4cee35edea",
-              "sha256": "86cfd02a8537a01406691719ae99cc93b8563082bcde2ad648f61bb06c4b110c"
+              "uuid": "ec967146-fd75-4d5b-80ec-54a4e1066ffe",
+              "username": "tinypeacock421",
+              "password": "44444444",
+              "salt": "81Bt2uUX",
+              "md5": "4eb5ab94f7ac8554c60a9f3697918566",
+              "sha1": "a8f3c23345d76eb1ff484f3a6288521fd73f59a9",
+              "sha256": "cc6cef439b3add806c27a8afa94a3e03e56dbf79e4a79f8042252ff1899bb611"
             },
             "dob": {
-              "date": "1966-05-16T04:31:45Z",
-              "age": 52
+              "date": "1961-02-03T01:47:12Z",
+              "age": 57
             },
             "registered": {
-              "date": "2009-04-10T15:26:26Z",
-              "age": 9
+              "date": "2012-05-18T14:42:13Z",
+              "age": 6
             },
-            "phone": "021-561-8738",
-            "cell": "081-152-3445",
+            "phone": "080-04399800",
+            "cell": "0959-705-6536",
             "id": {
-              "name": "PPS",
-              "value": "3284902T"
+              "name": "",
+              "value": null
             },
             "picture": {
-              "large": "https://randomuser.me/api/portraits/women/86.jpg",
-              "medium": "https://randomuser.me/api/portraits/med/women/86.jpg",
-              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/86.jpg"
+              "large": "https://randomuser.me/api/portraits/men/26.jpg",
+              "medium": "https://randomuser.me/api/portraits/med/men/26.jpg",
+              "thumbnail": "https://randomuser.me/api/portraits/thumb/men/26.jpg"
             },
-            "nat": "IE"
+            "nat": "IR"
           }
         ],
         "info": {
-          "seed": "af71a00ef7c3ce5a",
+          "seed": "c5c8b6f10ab92d6c",
           "results": 1,
           "page": 1,
           "version": "1.2"
@@ -86,58 +90,58 @@
           {
             "gender": "female",
             "name": {
-              "title": "ms",
-              "first": "oya",
-              "last": "dağlaroğlu"
+              "title": "mrs",
+              "first": "taylor",
+              "last": "simmons"
             },
             "location": {
-              "street": "2220 mevlana cd",
-              "city": "malatya",
-              "state": "diyarbakır",
-              "postcode": 18029,
+              "street": "5399 parker rd",
+              "city": "albany",
+              "state": "queensland",
+              "postcode": 8493,
               "coordinates": {
-                "latitude": "76.0171",
-                "longitude": "83.4569"
+                "latitude": "-85.7447",
+                "longitude": "90.6277"
               },
               "timezone": {
-                "offset": "+4:30",
-                "description": "Kabul"
+                "offset": "-7:00",
+                "description": "Mountain Time (US & Canada)"
               }
             },
-            "email": "oya.dağlaroğlu@example.com",
+            "email": "taylor.simmons@example.com",
             "login": {
-              "uuid": "c4ba3e84-197c-474e-b093-cd562de85369",
-              "username": "bluerabbit857",
-              "password": "master1",
-              "salt": "JCWCr47d",
-              "md5": "26ec08ee992951d47edc7f4b174b2563",
-              "sha1": "ccb88930ad38431df1773f6f420e0ffda60c32a9",
-              "sha256": "b4921a65881734c702dad45c3fef38aad40ab0a8d89bef70692714b2c4f2b4d9"
+              "uuid": "ed83e906-24cd-445f-bd2b-92a4a52ec884",
+              "username": "sadmeercat251",
+              "password": "birthday4",
+              "salt": "pV1qu79Z",
+              "md5": "289b78804340a8a3f6de61f324db0457",
+              "sha1": "5b76d9994b682311272b7017d4a7433b34ad3706",
+              "sha256": "a44a0d6a84b749fa030942a0dba744372f5538d0dfcb815e98291f975e3f371b"
             },
             "dob": {
-              "date": "1963-10-19T06:10:39Z",
-              "age": 54
+              "date": "1978-05-20T23:27:11Z",
+              "age": 40
             },
             "registered": {
-              "date": "2008-07-12T02:13:46Z",
-              "age": 10
+              "date": "2006-05-12T10:27:31Z",
+              "age": 12
             },
-            "phone": "(895)-314-6775",
-            "cell": "(810)-378-6858",
+            "phone": "03-1875-5350",
+            "cell": "0401-323-673",
             "id": {
-              "name": "",
-              "value": null
+              "name": "TFN",
+              "value": "872760856"
             },
             "picture": {
-              "large": "https://randomuser.me/api/portraits/women/14.jpg",
-              "medium": "https://randomuser.me/api/portraits/med/women/14.jpg",
-              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/14.jpg"
+              "large": "https://randomuser.me/api/portraits/women/63.jpg",
+              "medium": "https://randomuser.me/api/portraits/med/women/63.jpg",
+              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/63.jpg"
             },
-            "nat": "TR"
+            "nat": "AU"
           }
         ],
         "info": {
-          "seed": "de7828aee42a58e3",
+          "seed": "488dae8fc7a54add",
           "results": 1,
           "page": 1,
           "version": "1.2"
@@ -145,5 +149,5 @@
       }
     }
   ],
-  "HTMLSnapshot": "<html lang=\"en\"><head>\n    <meta charset=\"utf-8\">\n    <title>Webpack App</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  </head>\n  <body>\n    <div id=\"root\"><div><img src=\"https://randomuser.me/api/portraits/med/women/14.jpg\"><button>Next</button></div></div>\n  <script type=\"text/javascript\" src=\"main.js\"></script>\n\n</body></html>"
+  "HTMLSnapshot": "<html lang=\"en\"><head>\n    <meta charset=\"utf-8\">\n    <title>Webpack App</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  </head>\n  <body>\n    <div id=\"root\"><div><img src=\"https://randomuser.me/api/portraits/med/women/63.jpg\"><button>Next</button></div></div>\n  <script type=\"text/javascript\" src=\"main.js\"></script>\n\n</body></html>"
 }
