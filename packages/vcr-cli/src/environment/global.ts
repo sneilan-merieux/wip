@@ -1,4 +1,3 @@
-import * as jest from 'jest';
 import * as puppeteer from 'puppeteer'
 import chalk from 'chalk'
 import getConfig from 'vcr-config';
@@ -12,7 +11,6 @@ import {
 let browser
 
 export async function setup() {
-  jest.setTimeout(30 * 60 * 1000);
   const config = await getConfig()
   if (config.connect) {
     browser = await puppeteer.connect(config.connect)

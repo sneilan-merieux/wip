@@ -4,10 +4,12 @@ const { values } = require('lodash');
 
 declare var document;
 declare var page;
+declare var jest;
 declare var expect;
 
 function createTest(cassette) {
   return async () => {
+    jest.setTimeout(30 * 60 * 1000);
     await page.setRequestInterception(true);
     page.on('request', request => {
       const recordIndex = cassette.HTTPInteractions.findIndex(
