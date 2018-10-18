@@ -57,11 +57,13 @@ function createTest(cassette) {
     });
     debug('Goto page %s', cassette.pageURL);
     await page.goto(cassette.pageURL);
+    debug('Set viewport %j', cassette.viewport);
+    await page.setViewport(cassette.viewport);
     for (let i = 0; i < cassette.DOMEvents.length; i++) {
       const event = cassette.DOMEvents[i];
       debug('%s on %s', event.action, event.selector);
       await page.screenshot({ path: `/tmp/vcr-${i}.png` });
-      await page.waitForSelector(event.selector, { timeout: 3000 });
+      await page.waitForSelector(event.selector, { timeout: 5000 });
       const activeTag = await page.evaluate('document.activeElement.tagName');
       debug('Active element %s', activeTag);
       switch (event.action) {
