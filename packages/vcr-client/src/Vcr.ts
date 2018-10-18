@@ -42,6 +42,8 @@ export default class Vcr {
     this.cassette.setViewport(viewport);
     debug('Set userAgent %s', window.navigator.userAgent);
     this.cassette.setUserAgent(window.navigator.userAgent);
+    debug('Set language %s', window.navigator.language);
+    this.cassette.setUserAgent(window.navigator.language);
   }
 
   loadIframe() {

@@ -55,12 +55,20 @@ function createTest(cassette) {
     page.on('console', msg => {
       for (let i = 0; i < msg.args().length; ++i) debug('PAGE LOG: %s', msg.args()[i]);
     });
-    debug('Goto page %s', cassette.pageURL);
-    await page.goto(cassette.pageURL);
     debug('Set viewport %j', cassette.viewport);
     await page.setViewport(cassette.viewport);
     debug('Set userAgent %s', cassette.userAgent);
     await page.setUserAgent(cassette.userAgent);
+    debug('Set language %s', cassette.language);
+    await page.evaluateOnNewDocument(`
+      Object.defineProperty(navigator, 'language', {
+        get: function() {
+          return '${cassette.language}';
+        }
+      });
+    `);
+    debug('Goto page %s', cassette.pageURL);
+    await page.goto(cassette.pageURL);
     for (let i = 0; i < cassette.DOMEvents.length; i++) {
       const event = cassette.DOMEvents[i];
       debug('%s on %s', event.action, event.selector);

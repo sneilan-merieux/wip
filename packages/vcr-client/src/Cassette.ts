@@ -19,6 +19,7 @@ interface Viewport {
 export default class Cassette {
   viewport: Viewport;
   userAgent: string;
+  language: string;
   DOMEvents = [];
   HTTPInteractions = [];
   HTMLSnapshot = '';
@@ -30,6 +31,10 @@ export default class Cassette {
 
   setUserAgent(userAgent) {
     this.userAgent = userAgent;
+  }
+
+  setLanguage(language) {
+    this.language = language;
   }
 
   addDOMEvent(event) {
@@ -45,6 +50,7 @@ export default class Cassette {
       pageURL: this.pageURL,
       viewport: this.viewport,
       userAgent: this.userAgent,
+      language: this.language,
       DOMEvents: this.DOMEvents,
       HTTPInteractions: this.HTTPInteractions,
       HTMLSnapshot: this.HTMLSnapshot,
