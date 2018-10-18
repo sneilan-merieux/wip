@@ -1,6 +1,6 @@
 {
   "name": "vcr-server",
-  "version": "0.0.1-alpha.11",
+  "version": "0.0.1-alpha.12",
   "description": "",
   "main": "lib/index.js",
   "keywords": [],
@@ -19,8 +19,8 @@
   "dependencies": {
     "merge-deep": "^3.0.2",
     "nunjucks": "^3.1.3",
-    "vcr-client": "^0.0.1-alpha.7",
-    "vcr-config": "^0.0.1-alpha.2"
+    "vcr-client": "^0.0.1-alpha.8",
+    "vcr-config": "^0.0.1-alpha.3"
   },
   "devDependencies": {
     "@types/node": "^10.11.7",
