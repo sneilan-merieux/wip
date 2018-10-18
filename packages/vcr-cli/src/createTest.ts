@@ -83,7 +83,7 @@ function createTest(cassette) {
     }
 
     const watchHtml = page.waitForFunction(snapshot => document.documentElement.outerHTML === snapshot, {
-      timeout: 3000
+      timeout: 5000,
     }, cassette.HTMLSnapshot);
     try {
       await watchHtml;
@@ -91,6 +91,7 @@ function createTest(cassette) {
 
     const documentHandle = await page.evaluateHandle('document');
     const html = await page.evaluate(document => document.documentElement.outerHTML, documentHandle);
+    await page.screenshot({ path: `/tmp/vcr-result.png` });
     expect(cassette.HTMLSnapshot).toBe(html);
   }
 }
