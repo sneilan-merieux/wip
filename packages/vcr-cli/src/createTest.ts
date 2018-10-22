@@ -8,29 +8,53 @@ declare var page;
 declare var jest;
 declare var expect;
 
-function handleClick(event) {
-  return page.click(event.selector);
-}
-
-function handleDbClick(event) {
-  return page.click(event.selector, { clickCount: 2 });
-}
-
-function handleKeydown(event) {
-  const key = values(USKeyboardLayout).find(k => k.keyCode === event.keyCode);
-  debug('Press key %s', key.code);
-  return page.keyboard.press(key.code);
-}
-
-function handleChange(event) {
-  if (event.tagName === 'SELECT') {
-    return page.select(event.selector, event.value);
-  }
-  return Promise.resolve();
-}
-
 function createTest(cassette) {
   return async () => {
+    function handleClick(event) {
+      return page.click(event.selector);
+    }
+
+    function handleDbClick(event) {
+      return page.click(event.selector, { clickCount: 2 });
+    }
+
+    function handleKeydown(event) {
+      const key = values(USKeyboardLayout).find(k => k.keyCode === event.keyCode);
+      debug('Press key %s', key.code);
+      return page.keyboard.press(key.code);
+    }
+
+    function handleChange(event) {
+      if (event.tagName === 'SELECT') {
+        return page.select(event.selector, event.value);
+      }
+      return Promise.resolve();
+    }
+
+    async function handleSnapshot(event) {
+      const watchHtml = page.waitForFunction(
+        event => document.querySelector(event.selector).outerHTML === event.snapshot,
+        {
+          timeout: 5000,
+        },
+        event,
+      );
+      try {
+        await watchHtml;
+      } catch (e) {}
+
+      const documentHandle = await page.evaluateHandle('document');
+      const html = await page.evaluate(
+        (document, event) => {
+          console.log(event);
+          return document.querySelector(event.selector).outerHTML;
+        },
+        documentHandle,
+        event
+      );
+      expect(html).toBe(event.snapshot);
+    }
+
     jest.setTimeout(30 * 60 * 1000);
     await page.setRequestInterception(true);
     page.on('request', request => {
@@ -70,8 +94,8 @@ function createTest(cassette) {
     `);
     debug('Goto page %s', cassette.pageURL);
     await page.goto(cassette.pageURL);
-    for (let i = 0; i < cassette.DOMEvents.length; i++) {
-      const event = cassette.DOMEvents[i];
+    for (let i = 0; i < cassette.events.length; i++) {
+      const event = cassette.events[i];
       debug('%s on %s', event.action, event.selector);
       await page.screenshot({ path: `/tmp/vcr-${i}.png` });
       await page.waitForSelector(event.selector, { timeout: 5000 });
@@ -90,25 +114,13 @@ function createTest(cassette) {
         case 'change':
           await handleChange(event);
           break;
+        case 'snapshot':
+          await handleSnapshot(event);
         default:
           break;
       }
     }
-
-    const watchHtml = page.waitForFunction(snapshot => document.documentElement.outerHTML === snapshot, {
-      timeout: 5000,
-    }, cassette.HTMLSnapshot);
-    try {
-      await watchHtml;
-    } catch(e) {}
-
-    const documentHandle = await page.evaluateHandle('document');
-    const html = await page.evaluate(document => document.documentElement.outerHTML, documentHandle);
-    await page.screenshot({ path: `/tmp/vcr-result.png` });
-    fs.writeFileSync('/tmp/vcr-result.html', html);
-    fs.writeFileSync('/tmp/vcr-snapshot.html', cassette.HTMLSnapshot);
-    expect(html).toBe(cassette.HTMLSnapshot);
-  }
+  };
 }
 
 module.exports = createTest;

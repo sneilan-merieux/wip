@@ -63,7 +63,6 @@ export default class Vcr {
   }
 
   stop() {
-    this.cassette.HTMLSnapshot = this.iframe.contentWindow.document.documentElement.outerHTML;
     this.message({ action: 'stop' });
   }
 
@@ -106,6 +105,20 @@ export default class Vcr {
     this.cassette.addHTTPInteraction(data);
   }
 
+  recordSnapshotEvent(e) {
+    const event = {
+      selector: finder(e.target, {
+        root: this.iframe.contentWindow.document.documentElement,
+        seedMinLength: 5,
+        optimizedMinLength: 10,
+      }),
+      action: 'snapshot',
+      snapshot: e.target.outerHTML,
+    };
+    debug('Record snapshot event %o', event);
+    this.cassette.addEvent(event);
+  };
+
   recordDOMEvent(e) {
     if (this.previousEvent && this.previousEvent.timeStamp === e.timeStamp) return;
     this.previousEvent = e;
@@ -123,7 +136,7 @@ export default class Vcr {
       href: e.target.href ? e.target.href : null,
       coordinates: getCoordinates(e),
     };
-    debug('Record DOMEvent %o', event);
-    this.cassette.addDOMEvent(event);
+    debug('Record dom event %o', event);
+    this.cassette.addEvent(event);
   }
 }

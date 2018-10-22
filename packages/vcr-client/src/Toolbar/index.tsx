@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as style from 'styled-components';
 import Debug from 'debug';
+import DomInspector from '../inspector';
 import Vcr from '../Vcr';
 import { Root, Name } from './elements';
 import * as FileSaver from 'file-saver';
@@ -39,6 +40,18 @@ export default class Toolbar extends React.Component {
     this.vcr.stop();
   }
 
+  handleSnapshot = () => {
+    const inspector = new DomInspector({
+      contentWindow: this.vcr.iframe.contentWindow
+    });
+    inspector.onClick((e) => {
+      e.preventDefault();
+      this.vcr.recordSnapshotEvent(e);
+      inspector.destroy();
+    });
+    inspector.enable();
+  }
+
   handleSave = () => {
     const blob = new Blob([JSON.stringify(this.vcr.cassette.dump(), null, 2)], { type: "application/json;charset=utf-8" });
     FileSaver.saveAs(blob, "untitled.vc");
@@ -53,7 +66,10 @@ export default class Toolbar extends React.Component {
         <Name>VCR</Name>
         {installing ? <div>Installing</div> : (
           isRecording ? (
-            <button onClick={this.handleStop}>Stop</button>
+            <>
+              <button onClick={this.handleStop}>Stop</button>
+              <button onClick={this.handleSnapshot}>Snapshot</button>
+            </>
           ) : (
             <button onClick={this.handleRecord}>Record</button>
           )

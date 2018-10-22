@@ -2,11 +2,15 @@
   "pageURL": "http://localhost:8000/",
   "viewport": {
     "width": 1440,
-    "height": 746
+    "height": 324
   },
-  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36",
-  "language": "zh-CN",
-  "DOMEvents": [
+  "userAgent": "zh-CN",
+  "events": [
+    {
+      "selector": "html > body > #root > div > img",
+      "action": "snapshot",
+      "snapshot": "<img src=\"https://randomuser.me/api/portraits/med/men/0.jpg\">"
+    },
     {
       "selector": "html > body > #root > div > button",
       "value": "",
@@ -15,6 +19,11 @@
       "keyCode": null,
       "href": null,
       "coordinates": null
+    },
+    {
+      "selector": "html > body > #root > div > img",
+      "action": "snapshot",
+      "snapshot": "<img src=\"https://randomuser.me/api/portraits/med/men/64.jpg\">"
     }
   ],
   "HTTPInteractions": [
@@ -24,60 +33,60 @@
       "response": {
         "results": [
           {
-            "gender": "female",
+            "gender": "male",
             "name": {
-              "title": "mademoiselle",
-              "first": "rosmarie",
-              "last": "giraud"
+              "title": "mr",
+              "first": "مهدي",
+              "last": "یاسمی"
             },
             "location": {
-              "street": "1043 rue baraban",
-              "city": "beinwil am see",
-              "state": "basel-stadt",
-              "postcode": 3772,
+              "street": "6853 سهروردی",
+              "city": "کرج",
+              "state": "کردستان",
+              "postcode": 94387,
               "coordinates": {
-                "latitude": "-50.3875",
-                "longitude": "83.8347"
+                "latitude": "31.7519",
+                "longitude": "-2.6579"
               },
               "timezone": {
-                "offset": "+5:30",
-                "description": "Bombay, Calcutta, Madras, New Delhi"
+                "offset": "+10:00",
+                "description": "Eastern Australia, Guam, Vladivostok"
               }
             },
-            "email": "rosmarie.giraud@example.com",
+            "email": "مهدي.یاسمی@example.com",
             "login": {
-              "uuid": "d66b1612-835e-45bc-84d6-b98dd14cfea3",
-              "username": "happypanda648",
-              "password": "snake",
-              "salt": "lw4tSVWr",
-              "md5": "863bec21607f6d48dbf12ce6f4927852",
-              "sha1": "23dd09d017448a35124e22b7254ac87a23dde5c9",
-              "sha256": "edcff94c87e570868e679c8a549f4324248f29a867ace89ac5b48969604ed3bf"
+              "uuid": "dffa5ecf-cbe7-411f-867f-383061163a1f",
+              "username": "heavyzebra298",
+              "password": "goodman",
+              "salt": "YU6Eee0V",
+              "md5": "33fda2f02d8eb1a5cdaff90d2a868631",
+              "sha1": "8d5cf9bdcd92ce37cd1433cab869ad87451e27c3",
+              "sha256": "737b1b1b0e11e13b1022233744b3f3017dd445a9793b2697bb477e5e1b71cebe"
             },
             "dob": {
-              "date": "1971-10-13T00:47:31Z",
-              "age": 47
+              "date": "1973-07-18T19:08:00Z",
+              "age": 45
             },
             "registered": {
-              "date": "2015-06-10T05:29:41Z",
-              "age": 3
+              "date": "2005-06-07T13:33:30Z",
+              "age": 13
             },
-            "phone": "(799)-625-9127",
-            "cell": "(884)-445-4730",
+            "phone": "040-03261976",
+            "cell": "0937-554-4878",
             "id": {
-              "name": "AVS",
-              "value": "756.9667.7485.63"
+              "name": "",
+              "value": null
             },
             "picture": {
-              "large": "https://randomuser.me/api/portraits/women/81.jpg",
-              "medium": "https://randomuser.me/api/portraits/med/women/81.jpg",
-              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/81.jpg"
+              "large": "https://randomuser.me/api/portraits/men/0.jpg",
+              "medium": "https://randomuser.me/api/portraits/med/men/0.jpg",
+              "thumbnail": "https://randomuser.me/api/portraits/thumb/men/0.jpg"
             },
-            "nat": "CH"
+            "nat": "IR"
           }
         ],
         "info": {
-          "seed": "7bfb80a45371de22",
+          "seed": "604e9f6634ee7df8",
           "results": 1,
           "page": 1,
           "version": "1.2"
@@ -90,66 +99,65 @@
       "response": {
         "results": [
           {
-            "gender": "female",
+            "gender": "male",
             "name": {
-              "title": "miss",
-              "first": "ece",
-              "last": "tunaboylu"
+              "title": "mr",
+              "first": "lee",
+              "last": "larson"
             },
             "location": {
-              "street": "6728 filistin cd",
-              "city": "tekirdağ",
-              "state": "denizli",
-              "postcode": 94229,
+              "street": "3569 homestead rd",
+              "city": "seymour",
+              "state": "maryland",
+              "postcode": 23630,
               "coordinates": {
-                "latitude": "76.4966",
-                "longitude": "78.2914"
+                "latitude": "86.7805",
+                "longitude": "-36.2054"
               },
               "timezone": {
-                "offset": "-1:00",
-                "description": "Azores, Cape Verde Islands"
+                "offset": "+6:00",
+                "description": "Almaty, Dhaka, Colombo"
               }
             },
-            "email": "ece.tunaboylu@example.com",
+            "email": "lee.larson@example.com",
             "login": {
-              "uuid": "6c36a9b3-eed8-4399-a324-b04ac8807ca2",
-              "username": "crazypanda123",
-              "password": "boxster",
-              "salt": "3YFnKI4m",
-              "md5": "a45e7b2826c25d24eeff850f5a3798d2",
-              "sha1": "8b6b38f2a09ab802b814e9c9b31689063f93b2a7",
-              "sha256": "2ad3dc989fe7ad6c60b00de51f28eb65f0048e1c4077a57cee062aa2ae1c93ac"
+              "uuid": "98c56d62-114c-4ed0-9a91-7a7a8b569055",
+              "username": "purplebutterfly529",
+              "password": "peter1",
+              "salt": "gdqW42cw",
+              "md5": "4b8bf1715b0f7ac347e57b9357e5f264",
+              "sha1": "f3eb48082c0f76d64947c125d97ebd4c0219367f",
+              "sha256": "c7af114b9a63985094091e6bfaeb4c40ddd9184d38151588cec45ccad7ff4845"
             },
             "dob": {
-              "date": "1959-01-12T22:31:46Z",
-              "age": 59
+              "date": "1979-02-15T20:25:57Z",
+              "age": 39
             },
             "registered": {
-              "date": "2012-05-17T17:20:17Z",
-              "age": 6
+              "date": "2010-03-17T15:43:23Z",
+              "age": 8
             },
-            "phone": "(550)-476-1759",
-            "cell": "(786)-282-0662",
+            "phone": "(573)-360-3349",
+            "cell": "(832)-243-7131",
             "id": {
-              "name": "",
-              "value": null
+              "name": "SSN",
+              "value": "443-78-0935"
             },
             "picture": {
-              "large": "https://randomuser.me/api/portraits/women/78.jpg",
-              "medium": "https://randomuser.me/api/portraits/med/women/78.jpg",
-              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/78.jpg"
+              "large": "https://randomuser.me/api/portraits/men/64.jpg",
+              "medium": "https://randomuser.me/api/portraits/med/men/64.jpg",
+              "thumbnail": "https://randomuser.me/api/portraits/thumb/men/64.jpg"
             },
-            "nat": "TR"
+            "nat": "US"
           }
         ],
         "info": {
-          "seed": "fad53d329f279909",
+          "seed": "ac0e0acacd675d09",
           "results": 1,
           "page": 1,
           "version": "1.2"
         }
       }
     }
-  ],
-  "HTMLSnapshot": "<html lang=\"en\"><head>\n    <meta charset=\"utf-8\">\n    <title>Webpack App</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  </head>\n  <body>\n    <div id=\"root\"><div><img src=\"https://randomuser.me/api/portraits/med/women/78.jpg\"><button>Next</button></div></div>\n  <script type=\"text/javascript\" src=\"main.js\"></script>\n\n</body></html>"
+  ]
 }
