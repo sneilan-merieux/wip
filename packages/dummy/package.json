@@ -5,12 +5,14 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --overlay --mode=development --port=8000",
+    "start:test": "webpack-dev-server --overlay --mode=development --port=8001",
     "test": "vcr"
   },
   "dependencies": {
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "styled-components": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",

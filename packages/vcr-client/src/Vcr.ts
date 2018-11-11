@@ -1,7 +1,10 @@
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import finder from '@medv/finder';
 import Debug from 'debug';
 import eventsToRecord from './eventsToRecord';
 import Cassette, { DOMEvent } from './Cassette';
+import Toolbar from './Toolbar';
 
 const debug = Debug('vcr:client');
 
@@ -25,8 +28,12 @@ export default class Vcr {
 
   constructor() {
     this.port = this.channel.port1;
-    this.iframe = document.getElementById('iframe') as HTMLIFrameElement;
     this.loadIframe();
+    this.renderToolbar();
+  }
+
+  renderToolbar() {
+    ReactDOM.render(React.createElement(Toolbar, { vcr: this }), document.getElementById('vcr'));
   }
 
   async record() {
@@ -38,18 +45,20 @@ export default class Vcr {
       width: window.innerWidth,
       height: window.innerHeight,
     };
+    debug('Set current page path %j', this.iframe.contentWindow.location.pathname);
+    this.cassette.pagePath = this.iframe.contentWindow.location.pathname;
     debug('Set viewport %j', viewport);
-    this.cassette.setViewport(viewport);
+    this.cassette.viewport = viewport;
     debug('Set userAgent %s', window.navigator.userAgent);
-    this.cassette.setUserAgent(window.navigator.userAgent);
+    this.cassette.userAgent = window.navigator.userAgent;
     debug('Set language %s', window.navigator.language);
-    this.cassette.setUserAgent(window.navigator.language);
+    this.cassette.language = window.navigator.language;
   }
 
   loadIframe() {
+    this.iframe = document.getElementById('iframe') as HTMLIFrameElement;
     return new Promise(resolve => {
-      this.iframe.src = window.location.origin;
-      this.cassette.pageURL = this.iframe.src;
+      this.iframe.src = window.location.href.split('/').filter((_, i) => i !== 3).join('/');
       debug('Loading page %s', this.iframe.src);
       this.iframe.onload = resolve;
     });
@@ -117,7 +126,7 @@ export default class Vcr {
     };
     debug('Record snapshot event %o', event);
     this.cassette.addEvent(event);
-  };
+  }
 
   recordDOMEvent(e) {
     if (this.previousEvent && this.previousEvent.timeStamp === e.timeStamp) return;

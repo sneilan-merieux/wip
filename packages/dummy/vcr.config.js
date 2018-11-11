@@ -1,9 +1,10 @@
 module.exports = {
+  debug: true,
   apiMatch: [
     "https://randomuser.me/api/"
   ],
   server: {
-    command: 'npm run start',
-    port: 8000
-  },
+    command: 'npm run start:test',
+    port: 8001
+  }
 }

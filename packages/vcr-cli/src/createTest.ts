@@ -2,6 +2,7 @@ const USKeyboardLayout = require('puppeteer/lib/USKeyboardLayout');
 const debug = require('debug')('vcr:player');
 const { values } = require('lodash');
 const fs = require('fs');
+const getConfig = require('vcr-config').default;
 
 declare var document;
 declare var page;
@@ -54,8 +55,8 @@ function createTest(cassette) {
       );
       expect(html).toBe(event.snapshot);
     }
-
     jest.setTimeout(30 * 60 * 1000);
+    const config = await getConfig();
     await page.setRequestInterception(true);
     page.on('request', request => {
       const recordIndex = cassette.HTTPInteractions.findIndex(
@@ -92,8 +93,9 @@ function createTest(cassette) {
         }
       });
     `);
-    debug('Goto page %s', cassette.pageURL);
-    await page.goto(cassette.pageURL);
+    const pageUrl = 'http://127.0.0.1:' + config.server.port + cassette.pagePath;
+    debug('Goto page %s', pageUrl);
+    await page.goto(pageUrl);
     for (let i = 0; i < cassette.events.length; i++) {
       const event = cassette.events[i];
       debug('%s on %s', event.action, event.selector);

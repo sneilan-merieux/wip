@@ -15,51 +15,53 @@ const GlobalStyle = (style as any).createGlobalStyle`
   }
 `;
 
-export default class Toolbar extends React.Component {
+interface ToolbarProps {
+  vcr: Vcr;
+}
+
+export default class Toolbar extends React.Component<ToolbarProps> {
   state = {
     installing: true,
     isRecording: false,
     hasCassette: false,
   }
 
-  vcr = new Vcr();
-
   async componentDidMount() {
-    await this.vcr.install()
+    await this.props.vcr.install()
     this.setState({ installing: false });
   }
 
   handleRecord = () => {
     debug('Start recording');
     this.setState({ installing: false, isRecording: true });
-    this.vcr.record();
+    this.props.vcr.record();
   }
 
   handleStop = () => {
     this.setState({ isRecording: false, hasCassette: true });
-    this.vcr.stop();
+    this.props.vcr.stop();
   }
 
   handleSnapshot = () => {
     const inspector = new DomInspector({
-      contentWindow: this.vcr.iframe.contentWindow
+      contentWindow: this.props.vcr.iframe.contentWindow
     });
     inspector.onClick((e) => {
       e.preventDefault();
-      this.vcr.recordSnapshotEvent(e);
+      this.props.vcr.recordSnapshotEvent(e);
       inspector.destroy();
     });
     inspector.enable();
   }
 
   handleSave = () => {
-    const blob = new Blob([JSON.stringify(this.vcr.cassette.dump(), null, 2)], { type: "application/json;charset=utf-8" });
+    const blob = new Blob([JSON.stringify(this.props.vcr.cassette.dump(), null, 2)], { type: "application/json;charset=utf-8" });
     FileSaver.saveAs(blob, "untitled.vc");
   }
 
   render() {
     const { installing, isRecording, hasCassette } = this.state;
-
+    console.log(installing);
     return (
       <Root>
         <GlobalStyle />

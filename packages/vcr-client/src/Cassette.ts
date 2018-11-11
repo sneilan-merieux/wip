@@ -22,19 +22,7 @@ export default class Cassette {
   language: string;
   events = [];
   HTTPInteractions = [];
-  pageURL = '';
-
-  setViewport(viewport) {
-    this.viewport = viewport;
-  }
-
-  setUserAgent(userAgent) {
-    this.userAgent = userAgent;
-  }
-
-  setLanguage(language) {
-    this.language = language;
-  }
+  pagePath = '';
 
   addEvent(event) {
     this.events.push(event);
@@ -46,7 +34,7 @@ export default class Cassette {
 
   dump() {
     return {
-      pageURL: this.pageURL,
+      pagePath: this.pagePath,
       viewport: this.viewport,
       userAgent: this.userAgent,
       language: this.language,

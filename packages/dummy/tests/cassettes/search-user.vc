@@ -1,0 +1,115 @@
+{
+  "pagePath": "/",
+  "viewport": {
+    "width": 1440,
+    "height": 388
+  },
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
+  "language": "zh-CN",
+  "events": [
+    {
+      "selector": "body > #root > .sc-bdVaJa > form > .sc-bwzfXH",
+      "value": "",
+      "tagName": "INPUT",
+      "action": "click",
+      "keyCode": null,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "body > #root > .sc-bdVaJa > form > .sc-bwzfXH",
+      "value": "",
+      "tagName": "INPUT",
+      "action": "keydown",
+      "keyCode": 89,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "body > #root > .sc-bdVaJa > form > .sc-bwzfXH",
+      "value": "y",
+      "tagName": "INPUT",
+      "action": "keydown",
+      "keyCode": 69,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "body > #root > .sc-bdVaJa > form > .sc-bwzfXH",
+      "value": "ye",
+      "tagName": "INPUT",
+      "action": "keydown",
+      "keyCode": 83,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "body > #root > .sc-bdVaJa > form > .sc-bwzfXH",
+      "value": "yes",
+      "tagName": "INPUT",
+      "action": "keydown",
+      "keyCode": 77,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "body > #root > .sc-bdVaJa > form > .sc-bwzfXH",
+      "value": "yesm",
+      "tagName": "INPUT",
+      "action": "keydown",
+      "keyCode": 69,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "body > #root > .sc-bdVaJa > form > .sc-bwzfXH",
+      "value": "yesme",
+      "tagName": "INPUT",
+      "action": "keydown",
+      "keyCode": 67,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "body > #root > .sc-bdVaJa > form > .sc-bwzfXH",
+      "value": "yesmec",
+      "tagName": "INPUT",
+      "action": "keydown",
+      "keyCode": 75,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "body > #root > .sc-bdVaJa > form > .sc-bwzfXH",
+      "value": "yesmeck",
+      "tagName": "INPUT",
+      "action": "keydown",
+      "keyCode": 13,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "body > #root > .sc-bdVaJa > form > .sc-bwzfXH",
+      "value": "yesmeck",
+      "tagName": "INPUT",
+      "action": "change",
+      "keyCode": null,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "html > body > #root > .sc-bdVaJa > .sc-htpNat",
+      "tagName": "DIV",
+      "action": "click",
+      "keyCode": null,
+      "href": null,
+      "coordinates": null
+    },
+    {
+      "selector": "html > body > #root > .sc-bdVaJa > .sc-htpNat",
+      "action": "snapshot",
+      "snapshot": "<div class=\"sc-htpNat fCDLIn\"><img src=\"https://avatars0.githubusercontent.com/u/465125?v=4\" width=\"230\"><ul><li>Wei Zhu</li><li>yesmeck</li><li>@alipay</li><li>Hangzhou China</li><li><a href=\"http://twitter.com/yesmeck\">http://twitter.com/yesmeck</a></li></ul></div>"
+    }
+  ],
+  "HTTPInteractions": []
+}

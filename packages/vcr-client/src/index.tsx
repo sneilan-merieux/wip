@@ -1,5 +1,3 @@
-import  * as React from 'react';
-import { render } from 'react-dom';
-import Toolbar from './Toolbar';
+import Vcr from './Vcr';
 
-render(<Toolbar />, document.getElementById('vcr'));
+new Vcr();
