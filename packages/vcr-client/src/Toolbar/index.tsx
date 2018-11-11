@@ -61,7 +61,6 @@ export default class Toolbar extends React.Component<ToolbarProps> {
 
   render() {
     const { installing, isRecording, hasCassette } = this.state;
-    console.log(installing);
     return (
       <Root>
         <GlobalStyle />
