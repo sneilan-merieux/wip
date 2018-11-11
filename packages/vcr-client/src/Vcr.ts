@@ -80,7 +80,6 @@ export default class Vcr {
       navigator.serviceWorker.register('/__vcr_sw.bundle.js').then(registration => {
         debug('SW active');
         this.serviceWorker = registration.active || registration.installing;
-        console.log('this.serviceWorker', this.serviceWorker);
         navigator.serviceWorker.addEventListener('message', this.handleMessage);
         this.message({ action: 'init', config: window.__vcr_config__ });
         resolve();
