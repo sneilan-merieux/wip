@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import finder from '@medv/finder';
+import * as swivel from 'swivel';
 import Debug from 'debug';
 import eventsToRecord from './eventsToRecord';
-import Cassette, { DOMEvent } from './Cassette';
+import Cassette from './Cassette';
 import Toolbar from './Toolbar';
 
 const debug = Debug('vcr:client');
@@ -20,14 +21,10 @@ function getCoordinates(evt) {
 
 export default class Vcr {
   cassette = new Cassette();
-  channel = new MessageChannel();
-  port: MessagePort;
   iframe: HTMLIFrameElement;
-  serviceWorker: ServiceWorker;
   previousEvent: Event;
 
   constructor() {
-    this.port = this.channel.port1;
     this.loadIframe();
     this.renderToolbar();
   }
@@ -38,7 +35,7 @@ export default class Vcr {
 
   async record() {
     const events = Object.keys(eventsToRecord).map(key => eventsToRecord[key]);
-    this.message({ action: 'start' });
+    swivel.emit('data', { action: 'start', config: window.__vcr_config__ });
     await this.reloadIframe();
     this.addAllListeners(events);
     const viewport = {
@@ -58,7 +55,10 @@ export default class Vcr {
   loadIframe() {
     this.iframe = document.getElementById('iframe') as HTMLIFrameElement;
     return new Promise(resolve => {
-      this.iframe.src = window.location.href.split('/').filter((_, i) => i !== 3).join('/');
+      this.iframe.src = window.location.href
+        .split('/')
+        .filter((_, i) => i !== 3)
+        .join('/');
       debug('Loading page %s', this.iframe.src);
       this.iframe.onload = resolve;
     });
@@ -72,30 +72,23 @@ export default class Vcr {
   }
 
   stop() {
-    this.message({ action: 'stop' });
+    swivel.emit('data', { action: 'stop' });
   }
 
   install() {
-    return new Promise(resolve => {
-      navigator.serviceWorker.register('/__vcr_sw.bundle.js').then(registration => {
-        debug('SW active');
-        this.serviceWorker = registration.active || registration.installing;
-        navigator.serviceWorker.addEventListener('message', this.handleMessage);
-        this.message({ action: 'init', config: window.__vcr_config__ });
-        resolve();
+    return navigator.serviceWorker
+      .register('/__vcr_sw.bundle.js')
+      .then(() => navigator.serviceWorker.ready)
+      .then(() => {
+        swivel.on('data', this.handleMessage);
       });
-    });
   }
 
-  message(msg) {
-    this.serviceWorker.postMessage(msg);
-  }
-
-  handleMessage = event => {
-    debug('Received message %o', event);
-    const { action } = event.data;
+  handleMessage = (context, data) => {
+    debug('Received message %o', data);
+    const { action } = data;
     if (action) {
-      this[action](event);
+      this[action](data);
     }
   };
 
@@ -106,8 +99,7 @@ export default class Vcr {
     });
   }
 
-  recordHTTPInteraction(event) {
-    const { data } = event.data;
+  recordHTTPInteraction(data) {
     debug('Record HTTPInteraction %o', data);
     this.cassette.addHTTPInteraction(data);
   }

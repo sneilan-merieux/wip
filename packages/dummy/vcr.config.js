@@ -1,7 +1,7 @@
 module.exports = {
   debug: true,
   apiMatch: [
-    "https://api.github.com"
+    "https://api.github.com/**"
   ],
   server: {
     command: 'npm run start:test',

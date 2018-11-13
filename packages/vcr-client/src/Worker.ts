@@ -1,5 +1,6 @@
 import Debug from 'debug';
 import * as mm from 'micromatch';
+import * as swivel from 'swivel';
 
 declare var self: ServiceWorkerGlobalScope;
 
@@ -7,21 +8,16 @@ const debug = Debug('vcr:worker');
 
 export default class VcrWorker {
   recording = false;
-  port: MessagePort;
   config: any;
 
   constructor() {
-    self.addEventListener('message', this.handleMessage);
     self.addEventListener('fetch', this.handleFetch);
+    swivel.on('data', this.handleMessage);
   }
 
-  init(event) {
-    const { config } = event.data;
-    this.port = event.ports[0];
+  start(data) {
+    const { config } = data;
     this.config = config;
-  }
-
-  start() {
     this.recording = true;
   }
 
@@ -34,9 +30,10 @@ export default class VcrWorker {
 
     event.respondWith(
       fetch(request).then(async (response) => {
+        debug('Fetch %s', request.url);
         if (this.recording && mm.any(request.url, this.config.apiMatch)) {
           const json = await response.json();
-          this.message({
+          swivel.broadcast('data', {
             action: 'recordHTTPInteraction',
             data: {
               method: request.method,
@@ -53,19 +50,11 @@ export default class VcrWorker {
     );
   };
 
-  handleMessage = event => {
-    debug('Receiveed messahe %o', event);
-    const { action } = event.data;
+  handleMessage = (context, data) => {
+    debug('Receiveed messahe %o', data);
+    const { action } = data;
     if (action) {
-      this[action](event);
+      this[action](data);
     }
-  }
-
-  message(msg) {
-    self.clients.matchAll().then(clients => {
-      clients.forEach(client => {
-        client.postMessage(msg);
-      })
-    })
   }
 }
