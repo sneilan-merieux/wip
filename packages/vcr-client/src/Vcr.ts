@@ -23,6 +23,7 @@ export default class Vcr {
   cassette = new Cassette();
   iframe: HTMLIFrameElement;
   previousEvent: Event;
+  channel: any;
 
   constructor() {
     this.loadIframe();
@@ -35,7 +36,7 @@ export default class Vcr {
 
   async record() {
     const events = Object.keys(eventsToRecord).map(key => eventsToRecord[key]);
-    swivel.emit('data', { action: 'start', config: window.__vcr_config__ });
+    this.channel.emit('data', { action: 'start', config: window.__vcr_config__ });
     await this.reloadIframe();
     this.addAllListeners(events);
     const viewport = {
@@ -72,7 +73,7 @@ export default class Vcr {
   }
 
   stop() {
-    swivel.emit('data', { action: 'stop' });
+    this.channel.emit('data', { action: 'stop' });
   }
 
   install() {
@@ -80,7 +81,8 @@ export default class Vcr {
       .register('/__vcr_sw.bundle.js')
       .then(() => navigator.serviceWorker.ready)
       .then(() => {
-        swivel.on('data', this.handleMessage);
+        this.channel = swivel.at(navigator.serviceWorker.controller);
+        this.channel.on('data', this.handleMessage);
       });
   }
 
