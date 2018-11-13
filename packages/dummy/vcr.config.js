@@ -1,7 +1,7 @@
 module.exports = {
   debug: true,
   apiMatch: [
-    "https://randomuser.me/api/"
+    "https://api.github.com"
   ],
   server: {
     command: 'npm run start:test',
