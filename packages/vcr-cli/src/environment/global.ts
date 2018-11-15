@@ -17,7 +17,7 @@ export async function setup() {
   } else {
     browser = await puppeteer.launch({
       ...config.launch,
-      headless: !process.env.HEADLESS,
+      headless: process.env.HEADLESS !== 'false',
     });
   }
   process.env.PUPPETEER_WS_ENDPOINT = browser.wsEndpoint()
@@ -52,6 +52,9 @@ export async function setup() {
 }
 
 export async function teardown() {
+  if (process.env.HEADLESS === 'false') {
+    return;
+  }
   await teardownServer()
   await browser.close()
 }
