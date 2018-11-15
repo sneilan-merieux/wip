@@ -21,6 +21,7 @@
     "prepack": "npm run clean && npm run build"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
     "debug": "^4.0.1",
     "globby": "^8.0.1",
     "jest": "^23.6.0",
