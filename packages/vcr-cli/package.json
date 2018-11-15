@@ -1,6 +1,6 @@
 {
   "name": "vcr-cli",
-  "version": "0.0.1-alpha.22",
+  "version": "0.0.1-alpha.23",
   "description": "",
   "main": "lib/index.js",
   "keywords": [],
@@ -28,7 +28,7 @@
     "keycode": "^2.2.0",
     "lodash": "^4.17.11",
     "puppeteer": "^1.8.0",
-    "vcr-config": "^0.0.1-alpha.13",
+    "vcr-config": "^0.0.1-alpha.14",
     "yargs-parser": "^11.1.0"
   },
   "devDependencies": {
