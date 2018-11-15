@@ -63,7 +63,7 @@ function runServer(config: any = {}) {
     ...config.options,
   });
 
-  if (config.debug) {
+  if (config.debug || process.env.DEBUG) {
     // eslint-disable-next-line no-console
     console.log(chalk.magentaBright('\nvcr dev-server output:'));
     server.stdout.pipe(serverLogPrefixer).pipe(process.stdout);
