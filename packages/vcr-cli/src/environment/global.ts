@@ -17,7 +17,7 @@ export async function setup() {
   } else {
     browser = await puppeteer.launch({
       ...config.launch,
-      headless: !process.env.DEBUG,
+      headless: !process.env.HEADLESS,
     });
   }
   process.env.PUPPETEER_WS_ENDPOINT = browser.wsEndpoint()
