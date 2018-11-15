@@ -109,7 +109,6 @@ function createTest(cassette) {
     for (let i = 0; i < cassette.events.length; i++) {
       const event = cassette.events[i];
       it(`${event.action} on ${event.selector}`, async () => {
-        await page.screenshot({ path: `/tmp/vcr-${i}.png` });
         await page.waitForSelector(event.selector, { timeout: 5000 });
         const activeTag = await page.evaluate('document.activeElement.tagName');
         debug('Active element %s', activeTag);
