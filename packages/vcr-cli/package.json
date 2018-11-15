@@ -1,6 +1,6 @@
 {
   "name": "vcr-cli",
-  "version": "0.0.1-alpha.19",
+  "version": "0.0.1-alpha.20",
   "description": "",
   "main": "lib/index.js",
   "keywords": [],
@@ -29,7 +29,7 @@
     "keycode": "^2.2.0",
     "lodash": "^4.17.11",
     "puppeteer": "^1.8.0",
-    "vcr-config": "^0.0.1-alpha.10"
+    "vcr-config": "^0.0.1-alpha.11"
   },
   "devDependencies": {
     "@types/globby": "^8.0.0",
