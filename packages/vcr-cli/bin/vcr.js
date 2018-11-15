@@ -8,5 +8,7 @@ require('jest-cli/build/cli').run([
   '--config',
   JSON.stringify(config),
   '--no-cache',
-  '--detectOpenHandles'
+  '--detectOpenHandles',
+  '-w',
+  '1'
 ]);
