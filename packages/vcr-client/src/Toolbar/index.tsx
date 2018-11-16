@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as style from 'styled-components';
+import * as FileSaver from 'file-saver';
+import * as YAML from 'js-yaml';
 import Debug from 'debug';
 import DomInspector from '../inspector';
 import Vcr from '../Vcr';
 import { Root, Name } from './elements';
-import * as FileSaver from 'file-saver';
 
 const debug = Debug('vcr:client');
 
@@ -55,8 +56,8 @@ export default class Toolbar extends React.Component<ToolbarProps> {
   }
 
   handleSave = () => {
-    const blob = new Blob([JSON.stringify(this.props.vcr.cassette.dump(), null, 2)], { type: "application/json;charset=utf-8" });
-    FileSaver.saveAs(blob, "untitled.vc");
+    const blob = new Blob([YAML.dump(this.props.vcr.cassette.dump())], { type: "text/yaml" });
+    FileSaver.saveAs(blob, "untitled.yml");
   }
 
   render() {

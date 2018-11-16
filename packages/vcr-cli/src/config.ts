@@ -5,9 +5,9 @@ export default {
   globalTeardown: path.resolve(__dirname, './environment/teardown'),
   testEnvironment: path.resolve(__dirname, './environment/PuppeteerEnvironment'),
   setupTestFrameworkScriptFile: require.resolve('expect-puppeteer'),
-  testRegex: 'tests/cassettes/.*\\.vc$',
+  testRegex: 'tests/cassettes/.*\\.yml$',
   transform: {
-    '^.+\\.vc$': 'vcr-cli/lib/transformer.js',
+    '^.+\\.yml$': 'vcr-cli/lib/transformer.js',
   },
-  moduleFileExtensions: ['js', 'jsx', 'json', 'vc'],
+  moduleFileExtensions: ['js', 'jsx', 'json', 'yml'],
 };

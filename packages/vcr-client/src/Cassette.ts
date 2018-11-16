@@ -1,3 +1,5 @@
+const pkg = require('../package.json');
+
 export interface DOMEvent {
   selector: string;
   value: string;
@@ -34,6 +36,7 @@ export default class Cassette {
 
   dump() {
     return {
+      recordWith: `VCR ${pkg.version}`,
       pagePath: this.pagePath,
       viewport: this.viewport,
       userAgent: this.userAgent,
