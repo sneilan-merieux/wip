@@ -7,10 +7,12 @@
     "rootDir": "./src",
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "downlevelIteration": true,
     "lib": [
       "es6",
       "webworker",
-      "dom"
+      "dom",
+      "dom.iterable"
     ]
   }
 }

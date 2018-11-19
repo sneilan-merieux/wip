@@ -39,15 +39,24 @@ export default class VcrWorker {
         debug('Fetch %s', request.url);
         if (this.recording && mm.any(request.url, this.config.apiMatch)) {
           const json = await response.json();
+          const headers: any = {};
+          response.headers.forEach(function (v, k) {
+            headers[k] = v;
+          });
           swivel.broadcast('data', {
             action: 'recordHTTPInteraction',
             data: {
               method: request.method,
               url: response.url,
+              status: response.status,
+              statusText: response.statusText,
+              headers,
               response: json,
             }
           });
           return new Response(JSON.stringify(json), {
+            status: response.status,
+            statusText: response.statusText,
             headers: response.headers
           });
         }

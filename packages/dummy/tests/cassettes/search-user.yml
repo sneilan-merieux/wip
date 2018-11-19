@@ -98,6 +98,17 @@ HTTPInteractions:
     data:
       method: GET
       url: 'https://api.github.com/users/yesmeck'
+      status: 200
+      statusText: OK
+      headers:
+        cache-control: 'public, max-age=60, s-maxage=60'
+        content-type: application/json; charset=utf-8
+        etag: W/"501f0a723454041d1471838939ecf8f3"
+        last-modified: 'Wed, 14 Nov 2018 15:48:04 GMT'
+        x-github-media-type: github.v3; format=json
+        x-ratelimit-limit: '60'
+        x-ratelimit-remaining: '14'
+        x-ratelimit-reset: '1542643022'
       response:
         login: yesmeck
         id: 465125
@@ -124,9 +135,9 @@ HTTPInteractions:
         email: null
         hireable: null
         bio: null
-        public_repos: 234
+        public_repos: 235
         public_gists: 56
-        followers: 424
+        followers: 425
         following: 117
         created_at: '2010-11-03T02:12:59Z'
         updated_at: '2018-11-14T15:48:04Z'

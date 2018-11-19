@@ -74,11 +74,8 @@ function createTest(cassette) {
           cassette.HTTPInteractions.splice(recordIndex, 1);
           debug('Match request %s %s', record.method, record.url);
           request.respond({
-            status: 200,
-            contentType: 'application/json; charset=utf-8',
-            headers: {
-              'access-control-allow-origin': '*',
-            },
+            status: record.status,
+            headers: record.headers,
             body: JSON.stringify(record.response),
           });
         } else {
