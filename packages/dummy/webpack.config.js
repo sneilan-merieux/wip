@@ -25,6 +25,17 @@ module.exports = {
           },
         },
       },
+      {
+        enforce: 'post',
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'istanbul-instrumenter-loader',
+          options: {
+            esModules: true
+          }
+        },
+      }
     ],
   },
   plugins: [

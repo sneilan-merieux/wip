@@ -58,6 +58,8 @@ class PuppeteerEnvironment extends NodeEnvironment {
       this.global.page.addListener('pageerror', handleError);
     }
 
+    this.global.coverage = [];
+
     this.global.jestPuppeteer = {
       debug: async () => {
         // eslint-disable-next-line no-eval

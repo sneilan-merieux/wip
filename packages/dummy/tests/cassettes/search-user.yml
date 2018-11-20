@@ -2,7 +2,7 @@ recordWith: VCR 0.0.1-alpha.20
 pagePath: /
 viewport:
   width: 1440
-  height: 425
+  height: 376
 userAgent: >-
   Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML,
   like Gecko) Chrome/70.0.3538.102 Safari/537.36

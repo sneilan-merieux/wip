@@ -10,6 +10,7 @@ declare var jest;
 declare var expect;
 declare var it;
 declare var beforeAll;
+declare var afterAll;
 
 function createTest(cassette) {
   return () => {
@@ -97,6 +98,10 @@ function createTest(cassette) {
           }
         });
       `);
+    });
+
+    afterAll(async () => {
+      (global as any).__coverage__ = await page.evaluate('window.__coverage__');
     });
 
     it(`Goto page ${cassette.pagePath}`, async () => {

@@ -1,0 +1,81 @@
+recordWith: VCR 0.0.1-alpha.20
+pagePath: /
+viewport:
+  width: 1440
+  height: 425
+userAgent: >-
+  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML,
+  like Gecko) Chrome/70.0.3538.102 Safari/537.36
+language: zh-CN
+events:
+  - selector: 'body > #root > .sc-bdVaJa > form > .sc-bwzfXH'
+    value: ''
+    tagName: INPUT
+    action: click
+    keyCode: null
+    href: null
+    coordinates: null
+  - selector: 'body > #root > .sc-bdVaJa > form > .sc-bwzfXH'
+    value: ''
+    tagName: INPUT
+    action: keydown
+    keyCode: 52
+    href: null
+    coordinates: null
+  - selector: 'body > #root > .sc-bdVaJa > form > .sc-bwzfXH'
+    value: '4'
+    tagName: INPUT
+    action: keydown
+    keyCode: 48
+    href: null
+    coordinates: null
+  - selector: 'body > #root > .sc-bdVaJa > form > .sc-bwzfXH'
+    value: '40'
+    tagName: INPUT
+    action: keydown
+    keyCode: 52
+    href: null
+    coordinates: null
+  - selector: 'body > #root > .sc-bdVaJa > form > .sc-bwzfXH'
+    value: '404'
+    tagName: INPUT
+    action: keydown
+    keyCode: 13
+    href: null
+    coordinates: null
+  - selector: 'body > #root > .sc-bdVaJa > form > .sc-bwzfXH'
+    value: '404'
+    tagName: INPUT
+    action: change
+    keyCode: null
+    href: null
+    coordinates: null
+  - selector: 'html > body > #root > .sc-bdVaJa > div'
+    value: !<tag:yaml.org,2002:js/undefined> ''
+    tagName: DIV
+    action: click
+    keyCode: null
+    href: null
+    coordinates: null
+  - selector: 'html > body > #root > .sc-bdVaJa > div'
+    action: snapshot
+    snapshot: <div>Not found!</div>
+  - selector: 'html > body > #root > .sc-bdVaJa > div'
+    action: snapshot
+    snapshot: <div>Not found!</div>
+HTTPInteractions:
+  - action: recordHTTPInteraction
+    data:
+      method: GET
+      url: 'https://api.github.com/users/404'
+      status: 404
+      statusText: Not Found
+      headers:
+        content-type: application/json; charset=utf-8
+        x-github-media-type: github.v3; format=json
+        x-ratelimit-limit: '60'
+        x-ratelimit-remaining: '15'
+        x-ratelimit-reset: '1542643022'
+      response:
+        message: Not Found
+        documentation_url: 'https://developer.github.com/v3/users/#get-a-single-user'
