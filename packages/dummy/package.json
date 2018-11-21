@@ -1,6 +1,6 @@
 {
   "name": "dummy",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -24,8 +24,8 @@
     "html-webpack-plugin": "^3.2.0",
     "istanbul-instrumenter-loader": "^3.0.1",
     "puppeteer": "^1.9.0",
-    "vcr-cli": "^0.0.1-alpha.26",
-    "vcr-server": "^0.0.1-alpha.26",
+    "vcr-cli": "^0.0.1-alpha.27",
+    "vcr-server": "^0.0.1-alpha.27",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.8"
