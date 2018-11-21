@@ -1,6 +1,6 @@
 # VCR
 
-Record and replay e2e tests.
+Record and replay E2E tests.
 
 ## Installation
 
